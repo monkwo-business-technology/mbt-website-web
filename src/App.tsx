@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "./components/ThemeProvider";
+import { TutorialProvider } from "./context/TutorialContext";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import ServicesIndex from "./pages/ServicesIndex";
@@ -23,12 +24,24 @@ import ProductDetailPage from "./components/products/ProductDetailPage";
 import SolutionsIndex from "./pages/SolutionsIndex";
 import SolutionDetailPage from "./components/solutions/SolutionDetailPage";
 import LoginPage from "./pages/LoginPage";
+import DocumentationPage from "./pages/learn/DocumentationPage";
+import TutorialsPage from "./pages/learn/TutorialsPage";
+import TutorialDetailPage from "./pages/learn/TutorialDetailPage";
+import CaseStudiesPage from "./pages/learn/CaseStudiesPage";
+import CaseStudyDetailPage from "./pages/learn/CaseStudyDetailPage";
+import WebinarsPage from "./pages/learn/WebinarsPage";
+import CommunityPage from "./pages/learn/CommunityPage";
+import AdminLayout from "./pages/admin/AdminLayout";
+import AdminDashboard from "./pages/admin/AdminDashboard";
+import AdminTutorials from "./pages/admin/AdminTutorials";
+import AdminTutorialEditor from "./pages/admin/AdminTutorialEditor";
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <ThemeProvider>
+      <TutorialProvider>
       <TooltipProvider>
         <Toaster />
         <Sonner />
@@ -52,11 +65,27 @@ const App = () => (
             <Route path="/solutions" element={<SolutionsIndex />} />
             <Route path="/solutions/:slug" element={<SolutionDetailPage />} />
             <Route path="/login" element={<LoginPage />} />
+            {/* Learn Routes */}
+            <Route path="/learn/documentation" element={<DocumentationPage />} />
+            <Route path="/learn/tutorials" element={<TutorialsPage />} />
+            <Route path="/learn/tutorials/:slug" element={<TutorialDetailPage />} />
+            <Route path="/learn/case-studies" element={<CaseStudiesPage />} />
+            <Route path="/learn/case-studies/:slug" element={<CaseStudyDetailPage />} />
+            <Route path="/learn/webinars" element={<WebinarsPage />} />
+            <Route path="/learn/community" element={<CommunityPage />} />
+            {/* Admin Routes */}
+            <Route path="/admin" element={<AdminLayout />}>
+              <Route index element={<AdminDashboard />} />
+              <Route path="tutorials" element={<AdminTutorials />} />
+              <Route path="tutorials/new" element={<AdminTutorialEditor />} />
+              <Route path="tutorials/edit/:id" element={<AdminTutorialEditor />} />
+            </Route>
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
       </TooltipProvider>
+      </TutorialProvider>
     </ThemeProvider>
   </QueryClientProvider>
 );

@@ -94,11 +94,11 @@ const Header: React.FC = () => {
   ];
 
   const learn = [
-    { icon: BookOpen, title: 'Documentation', description: 'Technical guides and API docs', href: '#' },
-    { icon: GraduationCap, title: 'Tutorials', description: 'Step-by-step learning paths', href: '#' },
-    { icon: FileText, title: 'Case Studies', description: 'Real-world success stories', href: '#about' },
-    { icon: Video, title: 'Webinars', description: 'Live and recorded sessions', href: '#' },
-    { icon: Users, title: 'Community', description: 'Connect with other users', href: '#' },
+    { icon: BookOpen, title: 'Documentation', description: 'Technical guides and API docs', href: '/learn/documentation' },
+    { icon: GraduationCap, title: 'Tutorials', description: 'Step-by-step learning paths', href: '/learn/tutorials' },
+    { icon: FileText, title: 'Case Studies', description: 'Real-world success stories', href: '/learn/case-studies' },
+    { icon: Video, title: 'Webinars', description: 'Live and recorded sessions', href: '/learn/webinars' },
+    { icon: Users, title: 'Community', description: 'Connect with other users', href: '/learn/community' },
   ];
 
   return (
@@ -245,9 +245,9 @@ const Header: React.FC = () => {
                     <div className="w-[450px] p-6 bg-card border border-border rounded-xl shadow-xl">
                       <div className="space-y-1">
                         {learn.map((item) => (
-                          <a
+                          <Link
                             key={item.title}
-                            href={item.href}
+                            to={item.href}
                             className="group flex items-center gap-3 p-3 rounded-lg hover:bg-secondary/50 transition-colors"
                           >
                             <div className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
@@ -257,7 +257,7 @@ const Header: React.FC = () => {
                               <div className="font-medium text-foreground text-sm">{item.title}</div>
                               <div className="text-xs text-muted-foreground">{item.description}</div>
                             </div>
-                          </a>
+                          </Link>
                         ))}
                       </div>
                     </div>
@@ -348,9 +348,9 @@ const Header: React.FC = () => {
                 </summary>
                 <div className="pl-4 py-2 space-y-1">
                   {learn.map((item) => (
-                    <a key={item.title} href={item.href} className="block py-2 px-2 text-sm text-muted-foreground hover:text-foreground" onClick={() => setIsMenuOpen(false)}>
+                    <Link key={item.title} to={item.href} className="block py-2 px-2 text-sm text-muted-foreground hover:text-foreground" onClick={() => setIsMenuOpen(false)}>
                       {item.title}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </details>
