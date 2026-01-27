@@ -404,7 +404,7 @@ const Services: React.FC = () => {
 
   return (
     <section id="services" className="py-24 md:py-32 bg-background">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="max-w-[1600px] mx-auto px-4 lg:px-6">
         {/* Section Header */}
         <div className="max-w-2xl mb-16">
           <span className="text-sm font-medium text-accent mb-4 block">Application Services</span>

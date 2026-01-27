@@ -4,7 +4,7 @@ import { ArrowRightIcon } from '../icons/ServiceIcons';
 const Contact: React.FC = () => {
   return (
     <section id="contact" className="py-24 md:py-32 bg-background">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="max-w-[1600px] mx-auto px-4 lg:px-6">
         <div className="max-w-3xl mx-auto text-center">
           {/* Header */}
           <span className="text-sm font-medium text-accent mb-4 block">Get Started</span>
