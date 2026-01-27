@@ -13,7 +13,10 @@
       "Bash(node:*)",
       "Bash(node_modules.binvite.cmd --host)",
       "Bash(npx vite --host --port 8080)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nAdd expanded Services mega menu with 5 grouped categories and inner pages\n\nRestructure the Services navigation mega menu into 5 sections:\nApplication Services, Data & Analytics, AI, Infrastructure, and\nTraining & Capacity Development. Each section shows representative\nitems with \"..view more\" links to dedicated inner pages. Add new\ndata files, index pages, and detail pages for AI, Infrastructure,\nand Training service categories with full routing support.\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git push:*)",
+      "Bash(git commit:*)"
     ]
   }
 }
