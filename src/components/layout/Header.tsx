@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { MenuIcon, CloseIcon, CodeIcon, AutomationIcon, ConsultingIcon, DesignIcon, TrainingIcon, IoTIcon, EcommerceIcon, LegacyIcon, DataIcon, AIIcon } from '../icons/ServiceIcons';
+import { MenuIcon, CloseIcon, CodeIcon, AutomationIcon, ConsultingIcon, DesignIcon, TrainingIcon, IoTIcon, EcommerceIcon, LegacyIcon, DataIcon, AIIcon, InfrastructureIcon } from '../icons/ServiceIcons';
 import { ChevronDown, BookOpen, GraduationCap, FileText, Video, Users } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import ThemeToggle from '../ThemeToggle';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -15,26 +17,70 @@ const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const solutions = [
-    { icon: DataIcon, title: 'Data & Analytics', description: 'Turn enterprise data into actionable intelligence', href: '#data' },
-    { icon: AIIcon, title: 'Artificial Intelligence', description: 'Practical, responsible AI adoption', href: '#data' },
-    { icon: ConsultingIcon, title: 'Digital Transformation', description: 'Strategic technology adoption guidance', href: '#services' },
-    { icon: EcommerceIcon, title: 'E-commerce & ERP', description: 'Integrated business operations platforms', href: '#services' },
+    { icon: DataIcon, title: 'Data & Analytics', description: 'Turn enterprise data into actionable intelligence', href: '/solutions/data-analytics' },
+    { icon: AIIcon, title: 'Artificial Intelligence', description: 'Practical, responsible AI adoption', href: '/solutions/artificial-intelligence' },
+    { icon: ConsultingIcon, title: 'Digital Transformation', description: 'Strategic technology adoption guidance', href: '/solutions/digital-transformation' },
+    { icon: EcommerceIcon, title: 'E-commerce & ERP', description: 'Integrated business operations platforms', href: '/solutions/ecommerce-erp' },
   ];
 
-  const services = [
-    { icon: CodeIcon, title: 'Custom Software Development', description: 'Web, mobile & enterprise apps', href: '#services' },
-    { icon: AutomationIcon, title: 'Automation & Workflow', description: 'RPA and process optimization', href: '#services' },
-    { icon: DesignIcon, title: 'UX & Interface Design', description: 'Human-centered digital experiences', href: '#services' },
-    { icon: IoTIcon, title: 'IoT & Edge Computing', description: 'Connected device solutions', href: '#services' },
-    { icon: LegacyIcon, title: 'Legacy Modernization', description: 'System migration & updates', href: '#services' },
-    { icon: TrainingIcon, title: 'Training & Capacity Building', description: 'Technology training programs', href: '#services' },
+  const serviceCategories = [
+    {
+      title: 'Application Services',
+      icon: CodeIcon,
+      href: '/services',
+      items: [
+        { title: 'Custom Software Development', description: 'Web, mobile & enterprise apps' },
+        { title: 'Automation & Workflow', description: 'RPA and process optimization' },
+        { title: 'UX & Interface Design', description: 'Human-centered digital experiences' },
+      ],
+    },
+    {
+      title: 'Data & Analytics Services',
+      icon: DataIcon,
+      href: '/data-services',
+      items: [
+        { title: 'Data Warehousing & Lakehouse', description: 'Enterprise analytics foundation' },
+        { title: 'Enterprise Analytics & BI', description: 'Actionable business intelligence' },
+        { title: 'Data Governance & Quality', description: 'Trust and compliance for data' },
+      ],
+    },
+    {
+      title: 'Artificial Intelligence (AI)',
+      icon: AIIcon,
+      href: '/ai-services',
+      items: [
+        { title: 'Machine Learning Solutions', description: 'Predictive models & automation' },
+        { title: 'NLP & Computer Vision', description: 'Language and image processing' },
+        { title: 'AI Strategy & Consulting', description: 'Responsible AI adoption' },
+      ],
+    },
+    {
+      title: 'Infrastructure Services',
+      icon: InfrastructureIcon,
+      href: '/infrastructure-services',
+      items: [
+        { title: 'Cloud Architecture', description: 'Scalable cloud solutions' },
+        { title: 'DevOps & CI/CD', description: 'Automation & deployment pipelines' },
+        { title: 'Cybersecurity', description: 'Security assessment & protection' },
+      ],
+    },
+    {
+      title: 'Training & Capacity Development',
+      icon: TrainingIcon,
+      href: '/training-services',
+      items: [
+        { title: 'Technical Training Programs', description: 'Upskill your teams' },
+        { title: 'Workshops & Seminars', description: 'Emerging tech topics' },
+        { title: 'Onboarding Programs', description: 'New technology adoption' },
+      ],
+    },
   ];
 
   const products = [
-    { title: 'CRIBRO', description: 'Data quality & master data management' },
-    { title: 'BLUECANARY', description: 'E-learning platform' },
-    { title: 'BLUEPRIME', description: 'Sales process optimization' },
-    { title: 'CASH COMPLETE', description: 'Cash inventory management' },
+    { title: 'CRIBRO', description: 'Data quality & master data management', slug: 'cribro' },
+    { title: 'BLUECANARY', description: 'E-learning platform', slug: 'bluecanary' },
+    { title: 'BLUEPRIME', description: 'Sales process optimization', slug: 'blueprime' },
+    { title: 'CASH COMPLETE', description: 'Cash inventory management', slug: 'cash-complete' },
   ];
 
   const learn = [
@@ -80,9 +126,9 @@ const Header: React.FC = () => {
                     <div className="w-[600px] p-6 bg-card border border-border rounded-xl shadow-xl">
                       <div className="grid grid-cols-2 gap-4">
                         {solutions.map((item) => (
-                          <a
+                          <Link
                             key={item.title}
-                            href={item.href}
+                            to={item.href}
                             className="group flex items-start gap-4 p-3 rounded-lg hover:bg-secondary/50 transition-colors"
                           >
                             <div className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
@@ -92,13 +138,13 @@ const Header: React.FC = () => {
                               <div className="font-medium text-foreground text-sm">{item.title}</div>
                               <div className="text-xs text-muted-foreground mt-0.5">{item.description}</div>
                             </div>
-                          </a>
+                          </Link>
                         ))}
                       </div>
                       <div className="mt-4 pt-4 border-t border-border">
-                        <a href="#products" className="text-sm font-medium text-accent hover:text-accent/80 transition-colors">
-                          View all products →
-                        </a>
+                        <Link to="/solutions" className="text-sm font-medium text-accent hover:text-accent/80 transition-colors">
+                          View all solutions →
+                        </Link>
                       </div>
                     </div>
                   </NavigationMenuContent>
@@ -110,25 +156,37 @@ const Header: React.FC = () => {
                     Services
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <div className="w-[700px] p-6 bg-card border border-border rounded-xl shadow-xl">
-                      <div className="grid grid-cols-2 gap-3">
-                        {services.map((item) => (
-                          <a
-                            key={item.title}
-                            href={item.href}
-                            className="group flex items-start gap-3 p-3 rounded-lg hover:bg-secondary/50 transition-colors"
-                          >
-                            <div className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
-                              <item.icon className="w-4 h-4" />
+                    <div className="w-[820px] p-6 bg-card border border-border rounded-xl shadow-xl">
+                      <div className="grid grid-cols-3 gap-6">
+                        {serviceCategories.map((category) => (
+                          <div key={category.title}>
+                            <div className="flex items-center gap-2 mb-3">
+                              <div className="w-7 h-7 rounded-md bg-secondary flex items-center justify-center text-muted-foreground">
+                                <category.icon className="w-3.5 h-3.5" />
+                              </div>
+                              <span className="text-xs font-semibold text-foreground uppercase tracking-wider">{category.title}</span>
                             </div>
-                            <div>
-                              <div className="font-medium text-foreground text-sm">{item.title}</div>
-                              <div className="text-xs text-muted-foreground mt-0.5">{item.description}</div>
+                            <div className="space-y-1">
+                              {category.items.map((item) => (
+                                <div
+                                  key={item.title}
+                                  className="p-2 rounded-md"
+                                >
+                                  <div className="text-sm text-foreground font-medium">{item.title}</div>
+                                  <div className="text-xs text-muted-foreground">{item.description}</div>
+                                </div>
+                              ))}
                             </div>
-                          </a>
+                            <Link
+                              to={category.href}
+                              className="inline-block mt-2 text-xs font-medium text-accent hover:text-accent/80 transition-colors"
+                            >
+                              ..view more
+                            </Link>
+                          </div>
                         ))}
                       </div>
-                      <div className="mt-4 pt-4 border-t border-border flex items-center justify-between">
+                      <div className="mt-5 pt-4 border-t border-border flex items-center justify-between">
                         <span className="text-xs text-muted-foreground">Need custom solutions?</span>
                         <a href="#contact" className="text-sm font-medium text-accent hover:text-accent/80 transition-colors">
                           Contact Sales →
@@ -148,20 +206,20 @@ const Header: React.FC = () => {
                       <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-4">Proprietary Solutions</p>
                       <div className="space-y-2">
                         {products.map((product) => (
-                          <a
+                          <Link
                             key={product.title}
-                            href="#products"
+                            to={`/products/${product.slug}`}
                             className="block p-3 rounded-lg hover:bg-secondary/50 transition-colors"
                           >
                             <div className="font-medium text-foreground text-sm">{product.title}</div>
                             <div className="text-xs text-muted-foreground mt-0.5">{product.description}</div>
-                          </a>
+                          </Link>
                         ))}
                       </div>
                       <div className="mt-4 pt-4 border-t border-border">
-                        <a href="#products" className="text-sm font-medium text-accent hover:text-accent/80 transition-colors">
+                        <Link to="/products" className="text-sm font-medium text-accent hover:text-accent/80 transition-colors">
                           See all 10 products →
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </NavigationMenuContent>
@@ -200,12 +258,13 @@ const Header: React.FC = () => {
 
           {/* Right Side CTAs */}
           <div className="hidden lg:flex items-center gap-3">
-            <a
-              href="#"
+            <ThemeToggle />
+            <Link
+              to="/login"
               className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
               Login
-            </a>
+            </Link>
             <a
               href="#contact"
               className="px-5 py-2.5 rounded-full bg-accent text-accent-foreground text-sm font-medium hover:bg-accent/90 transition-colors"
@@ -238,9 +297,9 @@ const Header: React.FC = () => {
                 </summary>
                 <div className="pl-4 py-2 space-y-1">
                   {solutions.map((item) => (
-                    <a key={item.title} href={item.href} className="block py-2 px-2 text-sm text-muted-foreground hover:text-foreground" onClick={() => setIsMenuOpen(false)}>
+                    <Link key={item.title} to={item.href} className="block py-2 px-2 text-sm text-muted-foreground hover:text-foreground" onClick={() => setIsMenuOpen(false)}>
                       {item.title}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </details>
@@ -250,18 +309,26 @@ const Header: React.FC = () => {
                   Services
                   <ChevronDown className="w-4 h-4 group-open:rotate-180 transition-transform" />
                 </summary>
-                <div className="pl-4 py-2 space-y-1">
-                  {services.map((item) => (
-                    <a key={item.title} href={item.href} className="block py-2 px-2 text-sm text-muted-foreground hover:text-foreground" onClick={() => setIsMenuOpen(false)}>
-                      {item.title}
-                    </a>
+                <div className="pl-4 py-2 space-y-3">
+                  {serviceCategories.map((category) => (
+                    <div key={category.title}>
+                      <div className="text-xs font-semibold text-foreground uppercase tracking-wider px-2 mb-1">{category.title}</div>
+                      {category.items.map((item) => (
+                        <span key={item.title} className="block py-1.5 px-2 text-sm text-muted-foreground">
+                          {item.title}
+                        </span>
+                      ))}
+                      <Link to={category.href} className="block py-1 px-2 text-xs font-medium text-accent" onClick={() => setIsMenuOpen(false)}>
+                        ..view more
+                      </Link>
+                    </div>
                   ))}
                 </div>
               </details>
 
-              <a href="#products" className="py-3 px-2 text-muted-foreground font-medium rounded-lg hover:bg-secondary/50" onClick={() => setIsMenuOpen(false)}>
+              <Link to="/products" className="py-3 px-2 text-muted-foreground font-medium rounded-lg hover:bg-secondary/50" onClick={() => setIsMenuOpen(false)}>
                 Products
-              </a>
+              </Link>
 
               <details className="group">
                 <summary className="py-3 px-2 text-muted-foreground font-medium rounded-lg hover:bg-secondary/50 cursor-pointer list-none flex items-center justify-between">
@@ -278,9 +345,13 @@ const Header: React.FC = () => {
               </details>
 
               <div className="mt-4 pt-4 border-t border-border/50 flex flex-col gap-3">
-                <a href="#" className="py-2.5 px-4 text-center text-sm font-medium text-muted-foreground hover:text-foreground rounded-lg border border-border">
+                <div className="flex items-center justify-between px-2">
+                  <span className="text-sm text-muted-foreground">Theme</span>
+                  <ThemeToggle />
+                </div>
+                <Link to="/login" className="py-2.5 px-4 text-center text-sm font-medium text-muted-foreground hover:text-foreground rounded-lg border border-border" onClick={() => setIsMenuOpen(false)}>
                   Login
-                </a>
+                </Link>
                 <a href="#contact" className="py-2.5 px-4 text-center text-sm font-medium bg-accent text-accent-foreground rounded-full hover:bg-accent/90" onClick={() => setIsMenuOpen(false)}>
                   Contact Sales
                 </a>

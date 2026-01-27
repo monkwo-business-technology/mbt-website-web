@@ -1,23 +1,24 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
   const footerLinks = {
     services: [
-      { label: 'Custom Development', href: '#' },
-      { label: 'Data Analytics', href: '#' },
-      { label: 'AI Services', href: '#' },
-      { label: 'Digital Transformation', href: '#' },
+      { label: 'Custom Development', href: '/services/software-development' },
+      { label: 'Data Analytics', href: '/data-services' },
+      { label: 'AI Services', href: '/ai-services' },
+      { label: 'Digital Transformation', href: '/solutions/digital-transformation' },
     ],
     products: [
-      { label: 'CRIBRO', href: '#' },
-      { label: 'CASH COMPLETE', href: '#' },
-      { label: 'BLUECANARY', href: '#' },
-      { label: 'BLUEPRIME', href: '#' },
+      { label: 'CRIBRO', href: '/products/cribro' },
+      { label: 'CASH COMPLETE', href: '/products/cash-complete' },
+      { label: 'BLUECANARY', href: '/products/bluecanary' },
+      { label: 'BLUEPRIME', href: '/products/blueprime' },
     ],
     company: [
-      { label: 'About Us', href: '#' },
+      { label: 'About Us', href: '/#about' },
       { label: 'Careers', href: '#' },
-      { label: 'Contact', href: '#' },
+      { label: 'Contact', href: '/#contact' },
       { label: 'Blog', href: '#' },
     ],
   };
@@ -45,12 +46,12 @@ const Footer: React.FC = () => {
             <ul className="space-y-2">
               {footerLinks.services.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors duration-200"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -62,12 +63,12 @@ const Footer: React.FC = () => {
             <ul className="space-y-2">
               {footerLinks.products.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors duration-200"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -79,12 +80,12 @@ const Footer: React.FC = () => {
             <ul className="space-y-2">
               {footerLinks.company.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors duration-200"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -93,7 +94,7 @@ const Footer: React.FC = () => {
 
         <div className="mt-12 pt-8 border-t border-primary-foreground/10 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-primary-foreground/60">
-            © {new Date().getFullYear()} Monkwo Technologies. All rights reserved.
+            &copy; {new Date().getFullYear()} Monkwo Technologies. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <a href="#" className="text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors">
