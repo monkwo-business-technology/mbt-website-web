@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MenuIcon, CloseIcon, CodeIcon, AutomationIcon, ConsultingIcon, DesignIcon, TrainingIcon, IoTIcon, EcommerceIcon, LegacyIcon, DataIcon, AIIcon, InfrastructureIcon } from '../icons/ServiceIcons';
+import { MenuIcon, CloseIcon, CodeIcon, AutomationIcon, ConsultingIcon, DesignIcon, TrainingIcon, IoTIcon, EcommerceIcon, LegacyIcon, DataIcon, AIIcon, InfrastructureIcon, TalentIcon } from '../icons/ServiceIcons';
 import { ChevronDown, BookOpen, GraduationCap, FileText, Video, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import ThemeToggle from '../ThemeToggle';
@@ -29,9 +29,9 @@ const Header: React.FC = () => {
       icon: CodeIcon,
       href: '/services',
       items: [
-        { title: 'Custom Software Development', description: 'Web, mobile & enterprise apps' },
-        { title: 'Automation & Workflow', description: 'RPA and process optimization' },
-        { title: 'UX & Interface Design', description: 'Human-centered digital experiences' },
+        { title: 'Custom Software Development', description: 'Web, mobile & enterprise apps', href: '/services/software-development' },
+        { title: 'Automation & Workflow', description: 'RPA and process optimization', href: '/services/automation-workflow' },
+        { title: 'UX & Interface Design', description: 'Human-centered digital experiences', href: '/services/ux-design' },
       ],
     },
     {
@@ -39,9 +39,9 @@ const Header: React.FC = () => {
       icon: DataIcon,
       href: '/data-services',
       items: [
-        { title: 'Data Warehousing & Lakehouse', description: 'Enterprise analytics foundation' },
-        { title: 'Enterprise Analytics & BI', description: 'Actionable business intelligence' },
-        { title: 'Data Governance & Quality', description: 'Trust and compliance for data' },
+        { title: 'Data Warehousing & Lakehouse', description: 'Enterprise analytics foundation', href: '/data-services/data-warehousing' },
+        { title: 'Enterprise Analytics & BI', description: 'Actionable business intelligence', href: '/data-services/business-intelligence' },
+        { title: 'Data Governance & Quality', description: 'Trust and compliance for data', href: '/data-services/data-governance' },
       ],
     },
     {
@@ -49,9 +49,9 @@ const Header: React.FC = () => {
       icon: AIIcon,
       href: '/ai-services',
       items: [
-        { title: 'Machine Learning Solutions', description: 'Predictive models & automation' },
-        { title: 'NLP & Computer Vision', description: 'Language and image processing' },
-        { title: 'AI Strategy & Consulting', description: 'Responsible AI adoption' },
+        { title: 'Machine Learning Solutions', description: 'Predictive models & automation', href: '/ai-services/machine-learning' },
+        { title: 'NLP & Computer Vision', description: 'Language and image processing', href: '/ai-services/nlp-computer-vision' },
+        { title: 'AI Strategy & Consulting', description: 'Responsible AI adoption', href: '/ai-services/ai-strategy' },
       ],
     },
     {
@@ -59,9 +59,9 @@ const Header: React.FC = () => {
       icon: InfrastructureIcon,
       href: '/infrastructure-services',
       items: [
-        { title: 'Cloud Architecture', description: 'Scalable cloud solutions' },
-        { title: 'DevOps & CI/CD', description: 'Automation & deployment pipelines' },
-        { title: 'Cybersecurity', description: 'Security assessment & protection' },
+        { title: 'Cloud Architecture', description: 'Scalable cloud solutions', href: '/infrastructure-services/cloud-architecture' },
+        { title: 'DevOps & CI/CD', description: 'Automation & deployment pipelines', href: '/infrastructure-services/devops-cicd' },
+        { title: 'Cybersecurity', description: 'Security assessment & protection', href: '/infrastructure-services/cybersecurity' },
       ],
     },
     {
@@ -69,9 +69,19 @@ const Header: React.FC = () => {
       icon: TrainingIcon,
       href: '/training-services',
       items: [
-        { title: 'Technical Training Programs', description: 'Upskill your teams' },
-        { title: 'Workshops & Seminars', description: 'Emerging tech topics' },
-        { title: 'Onboarding Programs', description: 'New technology adoption' },
+        { title: 'Technical Training Programs', description: 'Upskill your teams', href: '/training-services/technical-training' },
+        { title: 'Workshops & Seminars', description: 'Emerging tech topics', href: '/training-services/workshops-seminars' },
+        { title: 'Onboarding Programs', description: 'New technology adoption', href: '/training-services/onboarding-programs' },
+      ],
+    },
+    {
+      title: 'Talent Outsourcing',
+      icon: TalentIcon,
+      href: '/talent-services',
+      items: [
+        { title: 'Staff Augmentation', description: 'Scale your team on demand', href: '/talent-services/staff-augmentation' },
+        { title: 'Dedicated Teams', description: 'Fully managed remote teams', href: '/talent-services/dedicated-teams' },
+        { title: 'IT Recruitment', description: 'Find top tech talent', href: '/talent-services/recruitment-services' },
       ],
     },
   ];
@@ -168,13 +178,14 @@ const Header: React.FC = () => {
                             </div>
                             <div className="space-y-1">
                               {category.items.map((item) => (
-                                <div
+                                <Link
                                   key={item.title}
-                                  className="p-2 rounded-md"
+                                  to={item.href}
+                                  className="block p-2 rounded-md hover:bg-secondary/50 transition-colors"
                                 >
                                   <div className="text-sm text-foreground font-medium">{item.title}</div>
                                   <div className="text-xs text-muted-foreground">{item.description}</div>
-                                </div>
+                                </Link>
                               ))}
                             </div>
                             <Link
@@ -314,9 +325,9 @@ const Header: React.FC = () => {
                     <div key={category.title}>
                       <div className="text-xs font-semibold text-foreground uppercase tracking-wider px-2 mb-1">{category.title}</div>
                       {category.items.map((item) => (
-                        <span key={item.title} className="block py-1.5 px-2 text-sm text-muted-foreground">
+                        <Link key={item.title} to={item.href} className="block py-1.5 px-2 text-sm text-muted-foreground hover:text-foreground" onClick={() => setIsMenuOpen(false)}>
                           {item.title}
-                        </span>
+                        </Link>
                       ))}
                       <Link to={category.href} className="block py-1 px-2 text-xs font-medium text-accent" onClick={() => setIsMenuOpen(false)}>
                         ..view more

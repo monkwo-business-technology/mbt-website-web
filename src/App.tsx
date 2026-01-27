@@ -16,6 +16,8 @@ import InfrastructureServicesIndex from "./pages/InfrastructureServicesIndex";
 import InfraServiceDetailPage from "./components/services/InfraServiceDetailPage";
 import TrainingServicesIndex from "./pages/TrainingServicesIndex";
 import TrainingServiceDetailPage from "./components/services/TrainingServiceDetailPage";
+import TalentServicesIndex from "./pages/TalentServicesIndex";
+import TalentServiceDetailPage from "./components/services/TalentServiceDetailPage";
 import ProductsIndex from "./pages/ProductsIndex";
 import ProductDetailPage from "./components/products/ProductDetailPage";
 import SolutionsIndex from "./pages/SolutionsIndex";
@@ -43,6 +45,8 @@ const App = () => (
             <Route path="/infrastructure-services/:slug" element={<InfraServiceDetailPage />} />
             <Route path="/training-services" element={<TrainingServicesIndex />} />
             <Route path="/training-services/:slug" element={<TrainingServiceDetailPage />} />
+            <Route path="/talent-services" element={<TalentServicesIndex />} />
+            <Route path="/talent-services/:slug" element={<TalentServiceDetailPage />} />
             <Route path="/products" element={<ProductsIndex />} />
             <Route path="/products/:slug" element={<ProductDetailPage />} />
             <Route path="/solutions" element={<SolutionsIndex />} />
