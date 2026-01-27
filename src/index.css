@@ -1,0 +1,194 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* Claude-inspired Pampas/cream backgrounds */
+    --background: 45 25% 96%;
+    --foreground: 40 5% 8%;
+
+    /* Cards with warm paper-like feel */
+    --card: 45 20% 98%;
+    --card-foreground: 40 5% 8%;
+
+    --popover: 45 20% 98%;
+    --popover-foreground: 40 5% 8%;
+
+    /* Near-black primary for text/buttons */
+    --primary: 40 5% 8%;
+    --primary-foreground: 45 25% 96%;
+
+    /* Soft warm gray secondary */
+    --secondary: 40 10% 91%;
+    --secondary-foreground: 40 5% 15%;
+
+    /* Muted tones - cloudy gray-gold */
+    --muted: 40 8% 88%;
+    --muted-foreground: 40 5% 45%;
+
+    /* Warm coral/terracotta accent - Claude orange */
+    --accent: 16 65% 55%;
+    --accent-foreground: 45 25% 98%;
+
+    /* Coral for highlights */
+    --highlight: 16 65% 55%;
+    --highlight-foreground: 45 25% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 45 25% 98%;
+
+    --border: 40 10% 88%;
+    --input: 40 10% 88%;
+    --ring: 16 65% 55%;
+
+    --radius: 0.75rem;
+
+    /* Custom gradients - Claude inspired */
+    --gradient-hero: linear-gradient(135deg, hsl(45 25% 96%) 0%, hsl(40 15% 93%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(45 20% 99%) 0%, hsl(45 20% 97%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(16 65% 55%) 0%, hsl(20 70% 50%) 100%);
+
+    --sidebar-background: 45 20% 97%;
+    --sidebar-foreground: 40 5% 8%;
+    --sidebar-primary: 16 65% 55%;
+    --sidebar-primary-foreground: 45 25% 98%;
+    --sidebar-accent: 40 10% 91%;
+    --sidebar-accent-foreground: 40 5% 15%;
+    --sidebar-border: 40 10% 88%;
+    --sidebar-ring: 16 65% 55%;
+  }
+
+  .dark {
+    --background: 30 5% 10%;
+    --foreground: 40 15% 92%;
+
+    --card: 30 5% 12%;
+    --card-foreground: 40 15% 92%;
+
+    --popover: 30 5% 12%;
+    --popover-foreground: 40 15% 92%;
+
+    --primary: 40 15% 92%;
+    --primary-foreground: 30 5% 10%;
+
+    --secondary: 30 5% 18%;
+    --secondary-foreground: 40 15% 92%;
+
+    --muted: 30 5% 20%;
+    --muted-foreground: 40 10% 55%;
+
+    --accent: 16 60% 50%;
+    --accent-foreground: 45 25% 98%;
+
+    --highlight: 16 60% 50%;
+    --highlight-foreground: 45 25% 98%;
+
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 40 15% 92%;
+
+    --border: 30 5% 20%;
+    --input: 30 5% 20%;
+    --ring: 16 60% 50%;
+
+    --sidebar-background: 30 5% 11%;
+    --sidebar-foreground: 40 15% 92%;
+    --sidebar-primary: 16 60% 50%;
+    --sidebar-primary-foreground: 45 25% 98%;
+    --sidebar-accent: 30 5% 18%;
+    --sidebar-accent-foreground: 40 15% 92%;
+    --sidebar-border: 30 5% 20%;
+    --sidebar-ring: 16 60% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-medium;
+  }
+
+  .nav-link-active {
+    @apply text-foreground;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-semibold tracking-tight text-foreground;
+  }
+
+  .section-subtitle {
+    @apply text-lg text-muted-foreground max-w-2xl;
+  }
+
+  .service-card {
+    @apply bg-card rounded-2xl p-6 md:p-8 border border-border/50 hover:border-accent/30 transition-all duration-300 hover:shadow-lg hover:shadow-accent/5;
+  }
+
+  .product-card {
+    @apply bg-card rounded-2xl p-6 border border-border/50 hover:border-primary/20 transition-all duration-300 hover:shadow-xl hover:shadow-primary/5;
+  }
+
+  .icon-container {
+    @apply w-12 h-12 rounded-xl bg-secondary flex items-center justify-center text-primary group-hover:bg-accent group-hover:text-accent-foreground transition-all duration-300;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary to-accent;
+  }
+
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+}
+
+@layer utilities {
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+}
