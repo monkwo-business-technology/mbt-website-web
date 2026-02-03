@@ -22,7 +22,7 @@ const CaseStudiesPage: React.FC = () => {
       <main className="pt-16">
         {/* Hero */}
         <section className="py-20 md:py-28 bg-secondary/30">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-[1600px] mx-auto px-4 lg:px-6">
             <div className="max-w-3xl">
               <span className="text-sm font-medium text-accent mb-4 block">Case Studies</span>
               <h1 className="text-4xl md:text-5xl font-semibold tracking-tight text-foreground mb-6">
@@ -37,7 +37,7 @@ const CaseStudiesPage: React.FC = () => {
 
         {/* Filter & Grid */}
         <section className="py-20 md:py-24">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-[1600px] mx-auto px-4 lg:px-6">
             {/* Filter pills */}
             <div className="flex flex-wrap gap-2 mb-12">
               {industries.map((industry) => (

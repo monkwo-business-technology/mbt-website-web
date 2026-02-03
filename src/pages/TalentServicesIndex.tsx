@@ -13,7 +13,7 @@ const TalentServicesIndex: React.FC = () => {
       <main className="pt-20">
         {/* Breadcrumb */}
         <div className="bg-secondary/30 border-b border-border/50">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8 py-4">
+          <div className="max-w-[1600px] mx-auto px-4 lg:px-6 py-4">
             <nav className="flex items-center gap-2 text-sm">
               <Link to="/" className="text-muted-foreground hover:text-foreground transition-colors">
                 Home
@@ -26,7 +26,7 @@ const TalentServicesIndex: React.FC = () => {
 
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-accent/5 via-background to-primary/5 py-20 md:py-28">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-[1600px] mx-auto px-4 lg:px-6">
             <div className="max-w-3xl">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center">
@@ -62,7 +62,7 @@ const TalentServicesIndex: React.FC = () => {
 
         {/* Services Grid */}
         <section id="services" className="py-20 md:py-24">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-[1600px] mx-auto px-4 lg:px-6">
             <div className="mb-12">
               <h2 className="text-3xl font-bold text-foreground mb-4">Our Talent Services</h2>
               <p className="text-muted-foreground max-w-2xl">
@@ -97,7 +97,7 @@ const TalentServicesIndex: React.FC = () => {
 
         {/* CTA Section */}
         <section id="contact" className="py-20 md:py-24 bg-[#1a73e8] text-white">
-          <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+          <div className="max-w-4xl mx-auto px-4 lg:px-6 text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Ready to scale your team?
             </h2>

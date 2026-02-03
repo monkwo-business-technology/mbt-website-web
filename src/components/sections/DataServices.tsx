@@ -518,7 +518,7 @@ const DataServices: React.FC = () => {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="max-w-[1600px] mx-auto px-4 lg:px-6">
         {/* Section Header */}
         <div className="max-w-2xl mb-16">
           <span className="text-sm font-medium text-[#1a73e8] dark:text-primary mb-4 block">Data Services</span>

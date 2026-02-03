@@ -14,7 +14,7 @@ const ProductsIndex: React.FC = () => {
       <main className="pt-16">
         {/* Hero */}
         <section className="py-20 md:py-28 bg-secondary/30">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-[1600px] mx-auto px-4 lg:px-6">
             <div className="max-w-3xl">
               <span className="text-sm font-medium text-accent mb-4 block">Proprietary Products</span>
               <h1 className="text-4xl md:text-5xl font-semibold tracking-tight text-foreground mb-6">
@@ -31,7 +31,7 @@ const ProductsIndex: React.FC = () => {
 
         {/* Products Grid */}
         <section className="py-20 md:py-24">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-[1600px] mx-auto px-4 lg:px-6">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {productsData.map((product) => (
                 <Link
@@ -69,7 +69,7 @@ const ProductsIndex: React.FC = () => {
 
         {/* CTA */}
         <section className="py-20 md:py-24 bg-foreground text-background">
-          <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+          <div className="max-w-4xl mx-auto px-4 lg:px-6 text-center">
             <h2 className="text-3xl md:text-4xl font-semibold mb-4">
               Not sure which product fits your needs?
             </h2>

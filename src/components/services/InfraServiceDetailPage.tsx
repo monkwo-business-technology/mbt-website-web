@@ -23,7 +23,7 @@ const InfraServiceDetailPage: React.FC = () => {
 
       <main className="pt-20">
         <div className="bg-secondary/30 border-b border-border/50">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8 py-4">
+          <div className="max-w-[1600px] mx-auto px-4 lg:px-6 py-4">
             <nav className="flex items-center gap-2 text-sm">
               <Link to="/" className="text-muted-foreground hover:text-foreground transition-colors">Home</Link>
               <ChevronRight className="w-4 h-4 text-muted-foreground" />
@@ -35,7 +35,7 @@ const InfraServiceDetailPage: React.FC = () => {
         </div>
 
         <section className="bg-gradient-to-br from-primary/5 via-background to-accent/5 py-20 md:py-28">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-[1600px] mx-auto px-4 lg:px-6">
             <div className="max-w-3xl">
               <span className="text-sm font-medium text-accent mb-4 block">Infrastructure Services</span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">{service.title}</h1>
@@ -54,7 +54,7 @@ const InfraServiceDetailPage: React.FC = () => {
         </section>
 
         <section className="py-20 md:py-24">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-[1600px] mx-auto px-4 lg:px-6">
             <div className="mb-12">
               <h2 className="text-3xl font-bold text-foreground mb-4">What We Offer</h2>
               <p className="text-muted-foreground max-w-2xl">{service.description}</p>
@@ -78,7 +78,7 @@ const InfraServiceDetailPage: React.FC = () => {
         </section>
 
         <section className="py-20 md:py-24 bg-secondary/30">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-[1600px] mx-auto px-4 lg:px-6">
             <div className="mb-12">
               <h2 className="text-3xl font-bold text-foreground mb-4">Our Approach</h2>
             </div>
@@ -95,7 +95,7 @@ const InfraServiceDetailPage: React.FC = () => {
         </section>
 
         <section className="py-20 md:py-24">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-[1600px] mx-auto px-4 lg:px-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
                 <h2 className="text-3xl font-bold text-foreground mb-4">Why Choose Us</h2>
@@ -123,7 +123,7 @@ const InfraServiceDetailPage: React.FC = () => {
         </section>
 
         <section className="py-12 border-t border-border/50">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-[1600px] mx-auto px-4 lg:px-6">
             <div className="flex justify-between items-center">
               {prevService ? (
                 <Link to={`/infrastructure-services/${prevService.slug}`} className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors group">
@@ -148,7 +148,7 @@ const InfraServiceDetailPage: React.FC = () => {
         </section>
 
         <section id="contact" className="py-20 md:py-24 bg-[#1a73e8] text-white">
-          <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+          <div className="max-w-4xl mx-auto px-4 lg:px-6 text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to modernize your infrastructure?</h2>
             <p className="text-lg opacity-90 mb-8">
               Let's discuss how our {service.shortTitle.toLowerCase()} solutions can strengthen your operations.

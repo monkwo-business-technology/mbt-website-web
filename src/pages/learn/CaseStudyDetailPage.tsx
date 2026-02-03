@@ -21,7 +21,7 @@ const CaseStudyDetailPage: React.FC = () => {
       <main className="pt-16">
         {/* Hero */}
         <section className="py-20 md:py-28 bg-secondary/30">
-          <div className="max-w-4xl mx-auto px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto px-4 lg:px-6">
             <Link
               to="/learn/case-studies"
               className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8"
@@ -40,7 +40,7 @@ const CaseStudyDetailPage: React.FC = () => {
         </section>
 
         <section className="py-20 md:py-24">
-          <div className="max-w-4xl mx-auto px-6 lg:px-8 space-y-12">
+          <div className="max-w-4xl mx-auto px-4 lg:px-6 space-y-12">
             {/* Challenge */}
             <div className="rounded-2xl border border-border/50 bg-card p-8">
               <h2 className="text-2xl font-semibold text-foreground mb-4">The Challenge</h2>

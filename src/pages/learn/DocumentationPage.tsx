@@ -17,7 +17,7 @@ const DocumentationPage: React.FC = () => {
       <main className="pt-16">
         {/* Hero */}
         <section className="py-20 md:py-28 bg-secondary/30">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-[1600px] mx-auto px-4 lg:px-6">
             <div className="max-w-3xl">
               <span className="text-sm font-medium text-accent mb-4 block">Documentation</span>
               <h1 className="text-4xl md:text-5xl font-semibold tracking-tight text-foreground mb-6">
@@ -32,7 +32,7 @@ const DocumentationPage: React.FC = () => {
 
         {/* Two-column layout */}
         <section className="py-20 md:py-24">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-[1600px] mx-auto px-4 lg:px-6">
             <div className="flex flex-col lg:flex-row gap-10">
               {/* Sidebar */}
               <aside className="lg:w-64 shrink-0">

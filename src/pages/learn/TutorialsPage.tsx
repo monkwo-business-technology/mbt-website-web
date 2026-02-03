@@ -79,7 +79,7 @@ export default function TutorialsPage() {
       <main className="pt-16">
         {/* Hero */}
         <section className="border-b border-border/50 bg-gradient-to-b from-secondary/50 to-background">
-          <div className="max-w-7xl mx-auto px-6 py-16 text-center">
+          <div className="max-w-[1600px] mx-auto px-6 py-16 text-center">
             <span className="text-accent font-semibold text-sm tracking-wider uppercase">
               Tutorials
             </span>
@@ -134,7 +134,7 @@ export default function TutorialsPage() {
         </div>
 
         {/* Two-column layout */}
-        <div className="max-w-7xl mx-auto px-6 py-10 flex gap-10">
+        <div className="max-w-[1600px] mx-auto px-6 py-10 flex gap-10">
           {/* Sidebar - desktop only */}
           <aside className="hidden lg:block w-72 flex-shrink-0">
             <div className="sticky top-24">

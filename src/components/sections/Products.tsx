@@ -69,7 +69,7 @@ const additionalProducts = [
 const Products: React.FC = () => {
   return (
     <section id="products" className="py-24 md:py-32 bg-white dark:bg-[#202124]">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="max-w-[1600px] mx-auto px-4 lg:px-6">
         {/* Section Header */}
         <div className="max-w-2xl mb-16">
           <span className="text-sm font-medium text-[#1a73e8] dark:text-primary mb-4 block">Proprietary Products</span>

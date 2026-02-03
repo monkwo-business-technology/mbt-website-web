@@ -16,7 +16,7 @@ const WebinarsPage: React.FC = () => {
       <main className="pt-16">
         {/* Hero */}
         <section className="py-20 md:py-28 bg-secondary/30">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-[1600px] mx-auto px-4 lg:px-6">
             <div className="max-w-3xl">
               <span className="text-sm font-medium text-accent mb-4 block">Webinars</span>
               <h1 className="text-4xl md:text-5xl font-semibold tracking-tight text-foreground mb-6">
@@ -31,7 +31,7 @@ const WebinarsPage: React.FC = () => {
 
         {/* Upcoming Webinars */}
         <section className="py-20 md:py-24">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-[1600px] mx-auto px-4 lg:px-6">
             <h2 className="text-2xl font-semibold text-foreground mb-8">Upcoming Webinars</h2>
 
             {upcoming.length === 0 ? (
@@ -72,7 +72,7 @@ const WebinarsPage: React.FC = () => {
 
         {/* Past Recordings */}
         <section className="py-20 md:py-24 bg-secondary/30">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-[1600px] mx-auto px-4 lg:px-6">
             <h2 className="text-2xl font-semibold text-foreground mb-8">Past Recordings</h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -24,7 +24,7 @@ const DataServiceDetailPage: React.FC = () => {
       <main className="pt-20">
         {/* Breadcrumb */}
         <div className="bg-secondary/30 border-b border-border/50">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8 py-4">
+          <div className="max-w-[1600px] mx-auto px-4 lg:px-6 py-4">
             <nav className="flex items-center gap-2 text-sm">
               <Link to="/" className="text-muted-foreground hover:text-foreground transition-colors">
                 Home
@@ -41,7 +41,7 @@ const DataServiceDetailPage: React.FC = () => {
 
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-primary/5 via-background to-accent/5 py-20 md:py-28">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-[1600px] mx-auto px-4 lg:px-6">
             <div className="max-w-3xl">
               <span className="text-sm font-medium text-accent mb-4 block">Data & Analytics Services</span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
@@ -75,7 +75,7 @@ const DataServiceDetailPage: React.FC = () => {
 
         {/* Features Section */}
         <section className="py-20 md:py-24">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-[1600px] mx-auto px-4 lg:px-6">
             <div className="mb-12">
               <h2 className="text-3xl font-bold text-foreground mb-4">What We Offer</h2>
               <p className="text-muted-foreground max-w-2xl">
@@ -109,7 +109,7 @@ const DataServiceDetailPage: React.FC = () => {
 
         {/* Process Section */}
         <section className="py-20 md:py-24 bg-secondary/30">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-[1600px] mx-auto px-4 lg:px-6">
             <div className="mb-12">
               <h2 className="text-3xl font-bold text-foreground mb-4">Our Approach</h2>
               <p className="text-muted-foreground max-w-2xl">
@@ -139,7 +139,7 @@ const DataServiceDetailPage: React.FC = () => {
 
         {/* Benefits Section */}
         <section className="py-20 md:py-24">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-[1600px] mx-auto px-4 lg:px-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
                 <h2 className="text-3xl font-bold text-foreground mb-4">Why Choose Us</h2>
@@ -176,7 +176,7 @@ const DataServiceDetailPage: React.FC = () => {
 
         {/* Navigation Between Services */}
         <section className="py-12 border-t border-border/50">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-[1600px] mx-auto px-4 lg:px-6">
             <div className="flex justify-between items-center">
               {prevService ? (
                 <Link
@@ -212,7 +212,7 @@ const DataServiceDetailPage: React.FC = () => {
 
         {/* CTA Section */}
         <section id="contact" className="py-20 md:py-24 bg-[#1a73e8] text-white">
-          <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+          <div className="max-w-4xl mx-auto px-4 lg:px-6 text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Ready to transform your data capabilities?
             </h2>

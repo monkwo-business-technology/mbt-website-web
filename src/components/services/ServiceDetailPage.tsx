@@ -25,7 +25,7 @@ const ServiceDetailPage: React.FC = () => {
       <main className="pt-16">
         {/* Hero Section */}
         <section className="relative py-20 md:py-28 bg-secondary/30">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-[1600px] mx-auto px-4 lg:px-6">
             <Link
               to="/#services"
               className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8"
@@ -65,7 +65,7 @@ const ServiceDetailPage: React.FC = () => {
 
         {/* Features Section */}
         <section id="features" className="py-20 md:py-24">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-[1600px] mx-auto px-4 lg:px-6">
             <div className="max-w-2xl mb-12">
               <h2 className="text-3xl font-semibold text-foreground mb-4">
                 What We Offer
@@ -98,7 +98,7 @@ const ServiceDetailPage: React.FC = () => {
 
         {/* Process Section */}
         <section className="py-20 md:py-24 bg-secondary/30">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-[1600px] mx-auto px-4 lg:px-6">
             <div className="max-w-2xl mb-12">
               <h2 className="text-3xl font-semibold text-foreground mb-4">
                 Our Process
@@ -135,7 +135,7 @@ const ServiceDetailPage: React.FC = () => {
 
         {/* Benefits Section */}
         <section className="py-20 md:py-24">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-[1600px] mx-auto px-4 lg:px-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
                 <h2 className="text-3xl font-semibold text-foreground mb-4">
@@ -190,7 +190,7 @@ const ServiceDetailPage: React.FC = () => {
 
         {/* Navigation Between Services */}
         <section className="py-12 border-t border-border">
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-[1600px] mx-auto px-4 lg:px-6">
             <div className="flex items-center justify-between">
               {prevService ? (
                 <Link
@@ -225,7 +225,7 @@ const ServiceDetailPage: React.FC = () => {
 
         {/* Contact CTA */}
         <section id="contact" className="py-20 md:py-24 bg-[#1a73e8] text-white">
-          <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+          <div className="max-w-4xl mx-auto px-4 lg:px-6 text-center">
             <h2 className="text-3xl md:text-4xl font-semibold mb-4">
               Let's build something great together
             </h2>
