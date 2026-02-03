@@ -24,6 +24,10 @@ import ProductDetailPage from "./components/products/ProductDetailPage";
 import SolutionsIndex from "./pages/SolutionsIndex";
 import SolutionDetailPage from "./components/solutions/SolutionDetailPage";
 import LoginPage from "./pages/LoginPage";
+import SignupPage from "./pages/SignupPage";
+import ForgotEmailPage from "./pages/ForgotEmailPage";
+import ForgotPasswordPage from "./pages/ForgotPasswordPage";
+import VerifyOtpPage from "./pages/VerifyOtpPage";
 import DocumentationPage from "./pages/learn/DocumentationPage";
 import TutorialsPage from "./pages/learn/TutorialsPage";
 import TutorialDetailPage from "./pages/learn/TutorialDetailPage";
@@ -65,6 +69,10 @@ const App = () => (
             <Route path="/solutions" element={<SolutionsIndex />} />
             <Route path="/solutions/:slug" element={<SolutionDetailPage />} />
             <Route path="/login" element={<LoginPage />} />
+            <Route path="/signup" element={<SignupPage />} />
+            <Route path="/forgot-email" element={<ForgotEmailPage />} />
+            <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+            <Route path="/verify-otp" element={<VerifyOtpPage />} />
             {/* Learn Routes */}
             <Route path="/learn/documentation" element={<DocumentationPage />} />
             <Route path="/learn/tutorials" element={<TutorialsPage />} />

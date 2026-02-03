@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { MenuIcon, CloseIcon, CodeIcon, AutomationIcon, ConsultingIcon, DesignIcon, TrainingIcon, IoTIcon, EcommerceIcon, LegacyIcon, DataIcon, AIIcon, InfrastructureIcon, TalentIcon } from '../icons/ServiceIcons';
 import { ChevronDown, BookOpen, GraduationCap, FileText, Video, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -15,6 +15,33 @@ import { cn } from '@/lib/utils';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isAppLauncherOpen, setIsAppLauncherOpen] = useState(false);
+  const appLauncherRef = useRef<HTMLDivElement>(null);
+
+  // Close app launcher when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (appLauncherRef.current && !appLauncherRef.current.contains(event.target as Node)) {
+        setIsAppLauncherOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  // All products for the app launcher
+  const allProducts = [
+    { title: 'Cribro', icon: 'database', color: 'bg-[#4285f4]', slug: 'cribro' },
+    { title: 'Cash Complete', icon: 'account_balance_wallet', color: 'bg-[#34a853]', slug: 'cash-complete' },
+    { title: 'Idea Wave', icon: 'lightbulb', color: 'bg-[#f9ab00]', slug: 'idea-wave' },
+    { title: 'Bluecanary', icon: 'school', color: 'bg-[#ea4335]', slug: 'bluecanary' },
+    { title: 'Blueprime', icon: 'trending_up', color: 'bg-[#a142f4]', slug: 'blueprime' },
+    { title: 'Simplex', icon: 'confirmation_number', color: 'bg-[#00acc1]', slug: 'simplex' },
+    { title: 'Ticketing', icon: 'local_activity', color: 'bg-[#ff6d00]', slug: 'ticketing-application' },
+    { title: 'E-Commerce', icon: 'shopping_cart', color: 'bg-[#0d904f]', slug: 'e-commerce-tool' },
+    { title: 'Scheduling', icon: 'calendar_month', color: 'bg-[#1a73e8]', slug: 'scheduling-application' },
+    { title: 'Payroll', icon: 'payments', color: 'bg-[#d93025]', slug: 'payroll-system' },
+  ];
 
   const solutions = [
     { icon: DataIcon, title: 'Data & Analytics', description: 'Turn enterprise data into actionable intelligence', href: '/solutions/data-analytics' },
@@ -87,10 +114,10 @@ const Header: React.FC = () => {
   ];
 
   const products = [
-    { title: 'CRIBRO', description: 'Data quality & master data management', slug: 'cribro' },
-    { title: 'BLUECANARY', description: 'E-learning platform', slug: 'bluecanary' },
-    { title: 'BLUEPRIME', description: 'Sales process optimization', slug: 'blueprime' },
-    { title: 'CASH COMPLETE', description: 'Cash inventory management', slug: 'cash-complete' },
+    { title: 'Cribro', description: 'Data quality & master data management', slug: 'cribro' },
+    { title: 'Bluecanary', description: 'E-learning platform', slug: 'bluecanary' },
+    { title: 'Blueprime', description: 'Sales process optimization', slug: 'blueprime' },
+    { title: 'Cash Complete', description: 'Cash inventory management', slug: 'cash-complete' },
   ];
 
   const learn = [
@@ -282,9 +309,49 @@ const Header: React.FC = () => {
             <ThemeToggle />
 
             {/* Waffle / App launcher icon */}
-            <button className="p-2 rounded-full hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043] transition-colors" aria-label="Apps">
-              <span className="material-symbols-outlined text-[#5f6368] dark:text-[#9aa0a6] text-[22px]">apps</span>
-            </button>
+            <div className="relative" ref={appLauncherRef}>
+              <button
+                className={`p-2 rounded-full hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043] transition-colors ${isAppLauncherOpen ? 'bg-[#f1f3f4] dark:bg-[#3c4043]' : ''}`}
+                aria-label="Apps"
+                onClick={() => setIsAppLauncherOpen(!isAppLauncherOpen)}
+              >
+                <span className="material-symbols-outlined text-[#5f6368] dark:text-[#9aa0a6] text-[22px]">apps</span>
+              </button>
+
+              {/* App Launcher Dropdown */}
+              {isAppLauncherOpen && (
+                <div className="absolute right-0 top-full mt-2 w-[320px] bg-white dark:bg-[#292a2d] rounded-2xl shadow-lg border border-[#dadce0] dark:border-[#3c4043] overflow-hidden z-50">
+                  <div className="p-4">
+                    <h3 className="text-xs font-medium text-[#5f6368] dark:text-[#9aa0a6] uppercase tracking-wider mb-4 px-1">Monkwo Apps</h3>
+                    <div className="grid grid-cols-3 gap-2">
+                      {allProducts.map((product) => (
+                        <Link
+                          key={product.slug}
+                          to={`/products/${product.slug}`}
+                          className="flex flex-col items-center gap-2 p-3 rounded-xl hover:bg-[#f8f9fa] dark:hover:bg-[#3c4043] transition-colors group"
+                          onClick={() => setIsAppLauncherOpen(false)}
+                        >
+                          <div className={`w-12 h-12 ${product.color} rounded-full flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow`}>
+                            <span className="material-symbols-outlined text-white text-[24px]">{product.icon}</span>
+                          </div>
+                          <span className="text-xs text-[#202124] dark:text-[#e3e3e3] text-center font-medium leading-tight">{product.title}</span>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="border-t border-[#dadce0] dark:border-[#3c4043] p-3 bg-[#f8f9fa] dark:bg-[#202124]">
+                    <Link
+                      to="/products"
+                      className="flex items-center justify-center gap-2 text-sm font-medium text-[#1a73e8] dark:text-[#8ab4f8] hover:text-[#174ea6] dark:hover:text-[#aecbfa] transition-colors"
+                      onClick={() => setIsAppLauncherOpen(false)}
+                    >
+                      View all products
+                      <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
+                    </Link>
+                  </div>
+                </div>
+              )}
+            </div>
 
             {/* Profile avatar */}
             <Link

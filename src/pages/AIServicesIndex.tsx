@@ -96,7 +96,7 @@ const AIServicesIndex: React.FC = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 md:py-24 bg-primary text-primary-foreground">
+        <section id="contact" className="py-20 md:py-24 bg-[#1a73e8] text-white">
           <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Ready to harness the power of AI?

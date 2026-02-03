@@ -26,11 +26,11 @@ export interface ProductData {
 export const productsData: ProductData[] = [
   {
     slug: 'cribro',
-    title: 'CRIBRO - Data Quality & Master Data Management',
-    shortTitle: 'CRIBRO',
+    title: 'Cribro - Data Quality & Master Data Management',
+    shortTitle: 'Cribro',
     tagline: 'Ensure data integrity across your enterprise',
-    description: 'CRIBRO is a comprehensive data quality and master data management platform that ensures accuracy, consistency, and reliability of your enterprise data assets.',
-    heroDescription: 'Data is the foundation of every business decision. CRIBRO empowers organizations to maintain pristine data quality and unified master data across all systems, enabling confident decision-making and regulatory compliance.',
+    description: 'Cribro is a comprehensive data quality and master data management platform that ensures accuracy, consistency, and reliability of your enterprise data assets.',
+    heroDescription: 'Data is the foundation of every business decision. Cribro empowers organizations to maintain pristine data quality and unified master data across all systems, enabling confident decision-making and regulatory compliance.',
     color: 'from-blue-500 to-blue-600',
     features: [
       { title: 'Automated Data Profiling & Cleansing', description: 'Continuously scan, profile, and cleanse data across all sources to identify duplicates, inconsistencies, and anomalies in real time.' },
@@ -41,7 +41,7 @@ export const productsData: ProductData[] = [
     process: [
       { step: 1, title: 'Data Assessment', description: 'Analyze your existing data landscape to identify quality gaps, redundancies, and governance needs.' },
       { step: 2, title: 'Rule Configuration', description: 'Define data quality rules, matching criteria, and governance policies tailored to your business requirements.' },
-      { step: 3, title: 'Integration & Deployment', description: 'Connect CRIBRO to your source systems and deploy automated profiling and cleansing pipelines.' },
+      { step: 3, title: 'Integration & Deployment', description: 'Connect Cribro to your source systems and deploy automated profiling and cleansing pipelines.' },
       { step: 4, title: 'Monitoring & Optimization', description: 'Continuously monitor data quality metrics and refine rules to maintain optimal data integrity.' },
     ],
     benefits: [
@@ -56,11 +56,11 @@ export const productsData: ProductData[] = [
   },
   {
     slug: 'cash-complete',
-    title: 'CASH COMPLETE - Cash Inventory Management',
-    shortTitle: 'CASH COMPLETE',
+    title: 'Cash Complete - Cash Inventory Management',
+    shortTitle: 'Cash Complete',
     tagline: 'Take full control of your cash operations',
-    description: 'CASH COMPLETE provides end-to-end visibility and management of cash inventory across branches, vaults, ATMs, and transit, optimizing liquidity and reducing operational risk.',
-    heroDescription: 'Cash remains a critical component of financial operations. CASH COMPLETE gives organizations real-time visibility into cash positions across every branch, vault, and channel, enabling smarter forecasting and reduced carrying costs.',
+    description: 'Cash Complete provides end-to-end visibility and management of cash inventory across branches, vaults, ATMs, and transit, optimizing liquidity and reducing operational risk.',
+    heroDescription: 'Cash remains a critical component of financial operations. Cash Complete gives organizations real-time visibility into cash positions across every branch, vault, and channel, enabling smarter forecasting and reduced carrying costs.',
     color: 'from-emerald-500 to-emerald-600',
     features: [
       { title: 'Real-Time Cash Position Tracking', description: 'Monitor cash balances across all branches, ATMs, vaults, and cash-in-transit with a centralized dashboard updated in real time.' },
@@ -116,11 +116,11 @@ export const productsData: ProductData[] = [
   },
   {
     slug: 'bluecanary',
-    title: 'BLUECANARY - E-Learning Platform',
-    shortTitle: 'BLUECANARY',
+    title: 'Bluecanary - E-Learning Platform',
+    shortTitle: 'Bluecanary',
     tagline: 'Learn smarter with adaptive experiences',
-    description: 'BLUECANARY is an adaptive e-learning platform that delivers personalized, interactive learning experiences tailored to individual learner needs and organizational training goals.',
-    heroDescription: 'One-size-fits-all training is a thing of the past. BLUECANARY uses adaptive learning technology to deliver personalized educational experiences that maximize knowledge retention, engagement, and measurable skill development.',
+    description: 'Bluecanary is an adaptive e-learning platform that delivers personalized, interactive learning experiences tailored to individual learner needs and organizational training goals.',
+    heroDescription: 'One-size-fits-all training is a thing of the past. Bluecanary uses adaptive learning technology to deliver personalized educational experiences that maximize knowledge retention, engagement, and measurable skill development.',
     color: 'from-amber-500 to-orange-500',
     features: [
       { title: 'Adaptive Learning Paths', description: 'AI-driven algorithms adjust course content, difficulty, and pacing based on individual learner performance and preferences.' },
@@ -146,11 +146,11 @@ export const productsData: ProductData[] = [
   },
   {
     slug: 'blueprime',
-    title: 'BLUEPRIME - Sales Enhancement',
-    shortTitle: 'BLUEPRIME',
+    title: 'Blueprime - Sales Enhancement',
+    shortTitle: 'Blueprime',
     tagline: 'Empower your sales teams to close more deals',
-    description: 'BLUEPRIME is a sales enhancement platform that equips sales teams with intelligent tools for lead management, customer engagement, and pipeline optimization.',
-    heroDescription: 'Winning in sales requires the right insights at the right time. BLUEPRIME arms your sales teams with AI-powered recommendations, streamlined workflows, and deep customer intelligence to accelerate deal velocity and revenue growth.',
+    description: 'Blueprime is a sales enhancement platform that equips sales teams with intelligent tools for lead management, customer engagement, and pipeline optimization.',
+    heroDescription: 'Winning in sales requires the right insights at the right time. Blueprime arms your sales teams with AI-powered recommendations, streamlined workflows, and deep customer intelligence to accelerate deal velocity and revenue growth.',
     color: 'from-rose-500 to-rose-600',
     features: [
       { title: 'Intelligent Lead Scoring', description: 'Machine learning models score and prioritize leads based on behavioral signals, demographics, and historical conversion patterns.' },

@@ -87,12 +87,12 @@ const ServicesIndex: React.FC = () => {
         </section>
 
         {/* CTA */}
-        <section className="py-20 md:py-24 bg-foreground text-background">
+        <section id="contact" className="py-20 md:py-24 bg-[#1a73e8] text-white">
           <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
             <h2 className="text-3xl md:text-4xl font-semibold mb-4">
               Not sure where to start?
             </h2>
-            <p className="text-background/70 mb-8 max-w-2xl mx-auto">
+            <p className="text-white/80 mb-8 max-w-2xl mx-auto">
               Our experts can help you identify the right solutions for your business challenges. 
               Schedule a free consultation today.
             </p>

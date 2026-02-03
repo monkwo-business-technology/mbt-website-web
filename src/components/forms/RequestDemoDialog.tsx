@@ -13,12 +13,12 @@ import {
 } from '@/components/ui/dialog';
 
 const applications = [
-  'CRIBRO',
-  'CASH COMPLETE',
-  'IDEA WAVE',
-  'BLUECANARY',
-  'BLUEPRIME',
-  'SIMPLEX',
+  'Cribro',
+  'Cash Complete',
+  'Idea Wave',
+  'Bluecanary',
+  'Blueprime',
+  'Simplex',
   'Ticketing Application',
   'E-Commerce Tool',
   'Scheduling Application',

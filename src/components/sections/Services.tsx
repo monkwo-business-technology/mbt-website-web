@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRightIcon } from '../icons/ServiceIcons';
 
@@ -400,10 +400,132 @@ const services = [
 
 const Services: React.FC = () => {
   const [activeTab, setActiveTab] = useState(0);
+  const [isSticky, setIsSticky] = useState(false);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+  const [canScrollLeftSticky, setCanScrollLeftSticky] = useState(false);
+  const [canScrollRightSticky, setCanScrollRightSticky] = useState(true);
+  const sectionRef = useRef<HTMLElement>(null);
+  const tabBarRef = useRef<HTMLDivElement>(null);
+  const tabContainerRef = useRef<HTMLDivElement>(null);
+  const stickyTabContainerRef = useRef<HTMLDivElement>(null);
   const active = services[activeTab];
 
+  const updateScrollButtons = (container: HTMLDivElement | null, setLeft: (v: boolean) => void, setRight: (v: boolean) => void) => {
+    if (container) {
+      setLeft(container.scrollLeft > 0);
+      setRight(container.scrollLeft < container.scrollWidth - container.clientWidth - 1);
+    }
+  };
+
+  const scroll = (container: HTMLDivElement | null, direction: 'left' | 'right') => {
+    if (container) {
+      const scrollAmount = 200;
+      container.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (sectionRef.current && tabBarRef.current) {
+        const sectionTop = sectionRef.current.offsetTop;
+        const sectionBottom = sectionTop + sectionRef.current.offsetHeight;
+        const scrollY = window.scrollY;
+        const tabBarHeight = tabBarRef.current.offsetHeight;
+
+        // Show sticky when scrolled past the original tab bar position
+        // Hide when scrolled past the section
+        const shouldBeSticky = scrollY > (sectionTop + 200) && scrollY < (sectionBottom - tabBarHeight - 200);
+        setIsSticky(shouldBeSticky);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const container = tabContainerRef.current;
+    const stickyContainer = stickyTabContainerRef.current;
+
+    const handleTabScroll = () => updateScrollButtons(container, setCanScrollLeft, setCanScrollRight);
+    const handleStickyScroll = () => updateScrollButtons(stickyContainer, setCanScrollLeftSticky, setCanScrollRightSticky);
+
+    // Initial check
+    handleTabScroll();
+    handleStickyScroll();
+
+    container?.addEventListener('scroll', handleTabScroll);
+    stickyContainer?.addEventListener('scroll', handleStickyScroll);
+
+    return () => {
+      container?.removeEventListener('scroll', handleTabScroll);
+      stickyContainer?.removeEventListener('scroll', handleStickyScroll);
+    };
+  }, []);
+
   return (
-    <section id="services" className="py-24 md:py-32 bg-white dark:bg-[#202124]">
+    <section ref={sectionRef} id="services" className="py-24 md:py-32 bg-white dark:bg-[#202124]">
+      {/* Floating Sticky Tab Bar */}
+      <div
+        className={`fixed left-1/2 -translate-x-1/2 z-40 transition-all duration-300 ${
+          isSticky ? 'top-20 opacity-100 translate-y-0' : 'top-16 opacity-0 -translate-y-4 pointer-events-none'
+        }`}
+      >
+        <div className="bg-white dark:bg-[#292a2d] rounded-full shadow-lg border border-[#dadce0] dark:border-[#3c4043] p-1.5 flex items-center gap-1 max-w-[90vw]">
+          {/* Left Arrow */}
+          <button
+            onClick={() => scroll(stickyTabContainerRef.current, 'left')}
+            className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200 ${
+              canScrollLeftSticky
+                ? 'text-[#5f6368] dark:text-[#9aa0a6] hover:bg-[#f8f9fa] dark:hover:bg-[#3c4043] cursor-pointer'
+                : 'text-[#dadce0] dark:text-[#3c4043] cursor-default'
+            }`}
+            disabled={!canScrollLeftSticky}
+          >
+            <span className="material-symbols-outlined text-[20px]">chevron_left</span>
+          </button>
+
+          {/* Scrollable Tabs */}
+          <div
+            ref={stickyTabContainerRef}
+            className="flex gap-1 overflow-x-auto scrollbar-hide scroll-smooth"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
+            {services.map((service, index) => (
+              <button
+                key={service.slug}
+                onClick={() => setActiveTab(index)}
+                className={`whitespace-nowrap px-4 py-2 text-xs font-medium rounded-full transition-all duration-200 flex-shrink-0 ${
+                  index === activeTab
+                    ? 'bg-[#1a73e8] text-white shadow-sm'
+                    : 'text-[#5f6368] dark:text-[#9aa0a6] hover:text-[#202124] dark:hover:text-white hover:bg-[#f8f9fa] dark:hover:bg-[#3c4043]'
+                }`}
+                style={{ fontFamily: "'Google Sans', Arial, sans-serif" }}
+              >
+                {service.title}
+              </button>
+            ))}
+          </div>
+
+          {/* Right Arrow */}
+          <button
+            onClick={() => scroll(stickyTabContainerRef.current, 'right')}
+            className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200 ${
+              canScrollRightSticky
+                ? 'text-[#5f6368] dark:text-[#9aa0a6] hover:bg-[#f8f9fa] dark:hover:bg-[#3c4043] cursor-pointer'
+                : 'text-[#dadce0] dark:text-[#3c4043] cursor-default'
+            }`}
+            disabled={!canScrollRightSticky}
+          >
+            <span className="material-symbols-outlined text-[20px]">chevron_right</span>
+          </button>
+        </div>
+      </div>
+
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-2xl mb-16">
@@ -416,22 +538,56 @@ const Services: React.FC = () => {
           </p>
         </div>
 
-        {/* Tab Bar */}
-        <div className="border-b border-[#dadce0] dark:border-[#3c4043] mb-10">
-          <div className="flex gap-2 overflow-x-auto pb-3 scrollbar-hide">
-            {services.map((service, index) => (
-              <button
-                key={service.slug}
-                onClick={() => setActiveTab(index)}
-                className={`whitespace-nowrap px-5 py-2 text-sm font-medium rounded-full transition-colors duration-200 flex-shrink-0 ${
-                  index === activeTab
-                    ? 'bg-[#1a73e8] text-white'
-                    : 'text-[#5f6368] dark:text-[#9aa0a6] hover:text-[#202124] dark:hover:text-white hover:bg-[#f8f9fa] dark:hover:bg-[#3c4043]'
-                }`}
-              >
-                {service.title}
-              </button>
-            ))}
+        {/* Original Tab Bar */}
+        <div ref={tabBarRef} className="border-b border-[#dadce0] dark:border-[#3c4043] mb-10">
+          <div className="flex items-center gap-2">
+            {/* Left Arrow */}
+            <button
+              onClick={() => scroll(tabContainerRef.current, 'left')}
+              className={`flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center transition-all duration-200 ${
+                canScrollLeft
+                  ? 'text-[#5f6368] dark:text-[#9aa0a6] hover:bg-[#f8f9fa] dark:hover:bg-[#3c4043] cursor-pointer'
+                  : 'text-[#dadce0] dark:text-[#3c4043] cursor-default'
+              }`}
+              disabled={!canScrollLeft}
+            >
+              <span className="material-symbols-outlined text-[22px]">chevron_left</span>
+            </button>
+
+            {/* Scrollable Tabs */}
+            <div
+              ref={tabContainerRef}
+              className="flex gap-2 overflow-x-auto pb-3 scrollbar-hide scroll-smooth flex-1"
+              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            >
+              {services.map((service, index) => (
+                <button
+                  key={service.slug}
+                  onClick={() => setActiveTab(index)}
+                  className={`whitespace-nowrap px-5 py-2 text-sm font-medium rounded-full transition-colors duration-200 flex-shrink-0 ${
+                    index === activeTab
+                      ? 'bg-[#1a73e8] text-white'
+                      : 'text-[#5f6368] dark:text-[#9aa0a6] hover:text-[#202124] dark:hover:text-white hover:bg-[#f8f9fa] dark:hover:bg-[#3c4043]'
+                  }`}
+                  style={{ fontFamily: "'Google Sans', Arial, sans-serif" }}
+                >
+                  {service.title}
+                </button>
+              ))}
+            </div>
+
+            {/* Right Arrow */}
+            <button
+              onClick={() => scroll(tabContainerRef.current, 'right')}
+              className={`flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center transition-all duration-200 ${
+                canScrollRight
+                  ? 'text-[#5f6368] dark:text-[#9aa0a6] hover:bg-[#f8f9fa] dark:hover:bg-[#3c4043] cursor-pointer'
+                  : 'text-[#dadce0] dark:text-[#3c4043] cursor-default'
+              }`}
+              disabled={!canScrollRight}
+            >
+              <span className="material-symbols-outlined text-[22px]">chevron_right</span>
+            </button>
           </div>
         </div>
 

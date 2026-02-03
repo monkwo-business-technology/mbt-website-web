@@ -10,10 +10,10 @@ const Footer: React.FC = () => {
       { label: 'Digital Transformation', href: '/solutions/digital-transformation' },
     ],
     products: [
-      { label: 'CRIBRO', href: '/products/cribro' },
-      { label: 'CASH COMPLETE', href: '/products/cash-complete' },
-      { label: 'BLUECANARY', href: '/products/bluecanary' },
-      { label: 'BLUEPRIME', href: '/products/blueprime' },
+      { label: 'Cribro', href: '/products/cribro' },
+      { label: 'Cash Complete', href: '/products/cash-complete' },
+      { label: 'Bluecanary', href: '/products/bluecanary' },
+      { label: 'Blueprime', href: '/products/blueprime' },
     ],
     company: [
       { label: 'About Us', href: '/#about' },

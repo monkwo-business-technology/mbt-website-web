@@ -224,26 +224,26 @@ const ServiceDetailPage: React.FC = () => {
         </section>
 
         {/* Contact CTA */}
-        <section id="contact" className="py-20 md:py-24 bg-foreground text-background">
+        <section id="contact" className="py-20 md:py-24 bg-[#1a73e8] text-white">
           <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
             <h2 className="text-3xl md:text-4xl font-semibold mb-4">
               Let's build something great together
             </h2>
-            <p className="text-background/70 mb-8 max-w-2xl mx-auto">
-              Ready to transform your business with {service.shortTitle.toLowerCase()}? 
+            <p className="text-white/80 mb-8 max-w-2xl mx-auto">
+              Ready to transform your business with {service.shortTitle.toLowerCase()}?
               Our team is here to help you every step of the way.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 to="/#contact"
-                className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-accent text-accent-foreground font-medium hover:bg-accent/90 transition-colors"
+                className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-white text-[#1a73e8] font-medium hover:bg-white/90 transition-colors"
               >
                 Contact Sales
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <a
                 href="mailto:info@monkwo.com"
-                className="inline-flex items-center px-8 py-3 rounded-full border border-background/30 text-background font-medium hover:bg-background/10 transition-colors"
+                className="inline-flex items-center px-8 py-3 rounded-full border border-white/30 text-white font-medium hover:bg-white/10 transition-colors"
               >
                 info@monkwo.com
               </a>
