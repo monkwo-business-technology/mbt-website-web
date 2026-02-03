@@ -123,11 +123,11 @@ const caseStudies: CaseStudy[] = [
 
 const CaseStudies: React.FC = () => {
   return (
-    <section id="case-studies" className="py-24 md:py-32 bg-background">
+    <section id="case-studies" className="py-24 md:py-32 bg-[#f8f9fa] dark:bg-[#28292a]">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-2xl mb-16">
-          <span className="text-sm font-medium text-accent mb-4 block">Case Studies</span>
+          <span className="text-sm font-medium text-[#1a73e8] dark:text-primary mb-4 block">Case Studies</span>
           <h2 className="section-title mb-4">
             Real results for real businesses
           </h2>
@@ -141,13 +141,13 @@ const CaseStudies: React.FC = () => {
           {caseStudies.map((study) => (
             <div
               key={study.id}
-              className="bg-card rounded-2xl border border-border/50 overflow-hidden hover:border-accent/30 hover:shadow-lg transition-all duration-300"
+              className="bg-white dark:bg-[#292a2d] rounded-2xl border border-[#dadce0] dark:border-[#3c4043] overflow-hidden hover:shadow-lg transition-all duration-300"
             >
               {/* Header */}
-              <div className="p-6 pb-4 border-b border-border/50">
+              <div className="p-6 pb-4 border-b border-[#dadce0] dark:border-[#3c4043]">
                 <div className="flex items-start justify-between gap-4 mb-4">
                   <div>
-                    <span className="text-xs font-medium text-accent uppercase tracking-wider">
+                    <span className="text-xs font-medium text-[#1a73e8] dark:text-primary uppercase tracking-wider">
                       {study.industry}
                     </span>
                     <h3 className="text-lg font-semibold text-foreground mt-1">
@@ -164,10 +164,10 @@ const CaseStudies: React.FC = () => {
               </div>
 
               {/* Metrics */}
-              <div className="grid grid-cols-3 divide-x divide-border/50 bg-secondary/30">
+              <div className="grid grid-cols-3 divide-x divide-[#dadce0] dark:divide-[#3c4043] bg-[#f8f9fa] dark:bg-[#28292a]">
                 {study.metrics.map((metric) => (
                   <div key={metric.label} className="p-4 text-center">
-                    <div className="text-xl font-bold text-accent">{metric.value}</div>
+                    <div className="text-xl font-bold text-[#1a73e8] dark:text-primary">{metric.value}</div>
                     <div className="text-xs text-muted-foreground mt-1">{metric.label}</div>
                   </div>
                 ))}
@@ -202,7 +202,7 @@ const CaseStudies: React.FC = () => {
           </p>
           <Link
             to="/#contact"
-            className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-accent text-accent-foreground font-medium hover:bg-accent/90 transition-colors"
+            className="group inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#1a73e8] text-white font-medium hover:bg-[#185abc] shadow-sm hover:shadow-md transition-all duration-200"
           >
             Start Your Project
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

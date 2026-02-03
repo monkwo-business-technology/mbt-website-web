@@ -395,11 +395,11 @@ const DataServices: React.FC = () => {
   const active = dataServices[activeTab];
 
   return (
-    <section id="data" className="py-24 md:py-32 bg-secondary/30">
-      <div className="max-w-[1600px] mx-auto px-4 lg:px-6">
+    <section id="data" className="py-24 md:py-32 bg-[#f8f9fa] dark:bg-[#28292a]">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-2xl mb-16">
-          <span className="text-sm font-medium text-accent mb-4 block">Data Services</span>
+          <span className="text-sm font-medium text-[#1a73e8] dark:text-primary mb-4 block">Data Services</span>
           <h2 className="section-title mb-4">
             Data-driven intelligence at scale
           </h2>
@@ -416,8 +416,8 @@ const DataServices: React.FC = () => {
               onClick={() => setActiveTab(index)}
               className={`whitespace-nowrap px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-200 flex-shrink-0 ${
                 activeTab === index
-                  ? 'bg-accent text-accent-foreground'
-                  : 'text-muted-foreground hover:text-foreground hover:bg-secondary/50'
+                  ? 'bg-[#1a73e8] text-white'
+                  : 'text-[#5f6368] dark:text-[#9aa0a6] hover:text-[#202124] dark:hover:text-white hover:bg-[#e8eaed] dark:hover:bg-[#3c4043]'
               }`}
             >
               {service.title}
@@ -433,23 +433,23 @@ const DataServices: React.FC = () => {
         >
           {/* Left – Text */}
           <div>
-            <h3 className="text-2xl font-semibold text-foreground mb-4">
+            <h3 className="text-2xl font-bold text-[#202124] dark:text-white mb-4" style={{ fontFamily: "'Google Sans', Arial, sans-serif" }}>
               {active.title}
             </h3>
-            <p className="text-muted-foreground leading-relaxed mb-6">
+            <p className="text-[#5f6368] dark:text-[#9aa0a6] leading-relaxed mb-6">
               {active.writeup}
             </p>
             <ul className="space-y-3 mb-8">
               {active.features.map((feature) => (
-                <li key={feature} className="flex items-center gap-3 text-sm text-foreground">
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" />
+                <li key={feature} className="flex items-center gap-3 text-sm text-[#202124] dark:text-[#e3e3e3]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#1a73e8] flex-shrink-0" />
                   {feature}
                 </li>
               ))}
             </ul>
             <Link
               to={`/data-services/${active.slug}`}
-              className="group inline-flex items-center gap-2 text-sm font-medium text-accent hover:text-accent/80 transition-colors duration-200"
+              className="group inline-flex items-center gap-2 text-sm font-medium text-[#1a73e8] dark:text-primary hover:text-[#174ea6] transition-colors duration-200"
             >
               Learn more
               <ArrowRightIcon className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
@@ -466,7 +466,7 @@ const DataServices: React.FC = () => {
         <div className="mt-16 text-center">
           <Link
             to="/data-services"
-            className="group inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-accent transition-colors duration-200"
+            className="group inline-flex items-center gap-2 text-sm font-medium text-[#1a73e8] dark:text-primary hover:text-[#174ea6] transition-colors duration-200"
           >
             Explore all data services
             <ArrowRightIcon className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />

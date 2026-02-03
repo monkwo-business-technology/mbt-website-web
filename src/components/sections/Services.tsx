@@ -403,11 +403,11 @@ const Services: React.FC = () => {
   const active = services[activeTab];
 
   return (
-    <section id="services" className="py-24 md:py-32 bg-background">
-      <div className="max-w-[1600px] mx-auto px-4 lg:px-6">
+    <section id="services" className="py-24 md:py-32 bg-white dark:bg-[#202124]">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-2xl mb-16">
-          <span className="text-sm font-medium text-accent mb-4 block">Application Services</span>
+          <span className="text-sm font-medium text-[#1a73e8] dark:text-primary mb-4 block">Application Services</span>
           <h2 className="section-title mb-4">
             End-to-end technology solutions
           </h2>
@@ -417,16 +417,16 @@ const Services: React.FC = () => {
         </div>
 
         {/* Tab Bar */}
-        <div className="border-b border-border/50 mb-10">
+        <div className="border-b border-[#dadce0] dark:border-[#3c4043] mb-10">
           <div className="flex gap-2 overflow-x-auto pb-3 scrollbar-hide">
             {services.map((service, index) => (
               <button
                 key={service.slug}
                 onClick={() => setActiveTab(index)}
-                className={`whitespace-nowrap px-4 py-2 text-sm font-medium rounded-full transition-colors duration-200 flex-shrink-0 ${
+                className={`whitespace-nowrap px-5 py-2 text-sm font-medium rounded-full transition-colors duration-200 flex-shrink-0 ${
                   index === activeTab
-                    ? 'bg-accent text-accent-foreground'
-                    : 'text-muted-foreground hover:text-foreground hover:bg-secondary/50'
+                    ? 'bg-[#1a73e8] text-white'
+                    : 'text-[#5f6368] dark:text-[#9aa0a6] hover:text-[#202124] dark:hover:text-white hover:bg-[#f8f9fa] dark:hover:bg-[#3c4043]'
                 }`}
               >
                 {service.title}
@@ -442,23 +442,23 @@ const Services: React.FC = () => {
         >
           {/* Left — Text */}
           <div>
-            <h3 className="text-2xl font-semibold text-foreground mb-4">
+            <h3 className="text-2xl font-bold text-[#202124] dark:text-white mb-4" style={{ fontFamily: "'Google Sans', Arial, sans-serif" }}>
               {active.title}
             </h3>
-            <p className="text-muted-foreground leading-relaxed mb-6">
+            <p className="text-[#5f6368] dark:text-[#9aa0a6] leading-relaxed mb-6">
               {active.writeup}
             </p>
             <ul className="space-y-2 mb-8">
               {active.features.map((feature) => (
-                <li key={feature} className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" />
+                <li key={feature} className="flex items-center gap-2 text-sm text-[#5f6368] dark:text-[#9aa0a6]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#1a73e8] flex-shrink-0" />
                   {feature}
                 </li>
               ))}
             </ul>
             <Link
               to={`/services/${active.slug}`}
-              className="inline-flex items-center gap-2 text-sm font-medium text-accent hover:text-accent/80 transition-colors duration-200"
+              className="inline-flex items-center gap-2 text-sm font-medium text-[#1a73e8] dark:text-primary hover:text-[#174ea6] transition-colors duration-200"
             >
               Learn more
               <ArrowRightIcon className="w-4 h-4" />
@@ -475,7 +475,7 @@ const Services: React.FC = () => {
         <div className="mt-16 text-center">
           <Link
             to="/services"
-            className="group inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-accent transition-colors duration-200"
+            className="group inline-flex items-center gap-2 text-sm font-medium text-[#1a73e8] dark:text-primary hover:text-[#174ea6] transition-colors duration-200"
           >
             View all services
             <ArrowRightIcon className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />

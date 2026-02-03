@@ -295,14 +295,14 @@ const Hero: React.FC = () => {
   const slide = slides[current];
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-16 hero-gradient overflow-hidden">
-      {/* Subtle background blobs */}
+    <section className="relative min-h-screen flex items-center justify-center pt-16 bg-white dark:bg-[#202124] overflow-hidden">
+      {/* Subtle background */}
       <div className="absolute inset-0 opacity-30 pointer-events-none">
-        <div className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full bg-accent/10 blur-3xl" />
-        <div className="absolute bottom-1/4 left-1/4 w-80 h-80 rounded-full bg-primary/5 blur-3xl" />
+        <div className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full bg-[#e8f0fe] dark:bg-[#1a73e8]/10 blur-3xl" />
+        <div className="absolute bottom-1/4 left-1/4 w-80 h-80 rounded-full bg-[#fce8e6] dark:bg-[#d93025]/10 blur-3xl" />
       </div>
 
-      <div className="relative max-w-[1600px] mx-auto px-4 lg:px-6 py-24 md:py-32 w-full">
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-24 md:py-32 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* ---- Text column ---- */}
           <div
@@ -314,33 +314,33 @@ const Hero: React.FC = () => {
             }`}
           >
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary border border-border mb-8">
-              <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-              <span className="text-sm font-medium text-muted-foreground">{slide.badge}</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#e8f0fe] dark:bg-[#1a73e8]/12 mb-8">
+              <span className="w-2 h-2 rounded-full bg-[#1a73e8] animate-pulse" />
+              <span className="text-sm font-medium text-[#1967d2] dark:text-primary">{slide.badge}</span>
             </div>
 
             {/* Headline */}
-            <h1 className="text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-semibold tracking-tight text-foreground leading-tight mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[4rem] font-bold tracking-tight text-[#202124] dark:text-white leading-[1.1] mb-6" style={{ fontFamily: "'Google Sans', Arial, sans-serif" }}>
               {slide.headline}{' '}
               <span className="gradient-text">{slide.highlight}</span>
             </h1>
 
             {/* Subheadline */}
-            <p className="text-lg md:text-xl text-muted-foreground max-w-xl mb-10">
+            <p className="text-lg md:text-xl text-[#5f6368] dark:text-[#9aa0a6] max-w-xl mb-10 leading-relaxed">
               {slide.subheadline}
             </p>
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row items-start gap-4">
               <StartProjectDialog>
-                <button className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-accent text-accent-foreground font-medium hover:bg-accent/90 transition-all duration-200">
+                <button className="group inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#1a73e8] text-white font-medium hover:bg-[#185abc] active:bg-[#174ea6] shadow-sm hover:shadow-md transition-all duration-200" style={{ fontFamily: "'Google Sans', Arial, sans-serif" }}>
                   Start a Project
                   <ArrowRightIcon className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
                 </button>
               </StartProjectDialog>
               <a
                 href="#services"
-                className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-all duration-200"
+                className="group inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#e8f0fe] text-[#1967d2] dark:bg-[#1a73e8]/12 dark:text-primary font-medium hover:bg-[#d2e3fc] transition-all duration-200" style={{ fontFamily: "'Google Sans', Arial, sans-serif" }}
               >
                 Explore Services
                 <ArrowRightIcon className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
@@ -371,7 +371,7 @@ const Hero: React.FC = () => {
                 onClick={() => goTo(i)}
                 aria-label={`Go to slide ${i + 1}`}
                 className={`h-2 rounded-full transition-all duration-300 ${
-                  i === current ? 'w-8 bg-accent' : 'w-2 bg-muted-foreground/30 hover:bg-muted-foreground/50'
+                  i === current ? 'w-8 bg-[#1a73e8]' : 'w-2 bg-[#dadce0] dark:bg-[#5f6368] hover:bg-[#9aa0a6]'
                 }`}
               />
             ))}
@@ -382,14 +382,14 @@ const Hero: React.FC = () => {
             <button
               onClick={prev}
               aria-label="Previous slide"
-              className="p-2 rounded-full border border-border hover:bg-secondary/60 text-muted-foreground hover:text-foreground transition-colors"
+              className="p-2 rounded-full border border-[#dadce0] dark:border-[#5f6368] hover:bg-[#f8f9fa] dark:hover:bg-[#3c4043] text-[#5f6368] dark:text-[#9aa0a6] hover:text-[#202124] dark:hover:text-white transition-colors"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
             <button
               onClick={next}
               aria-label="Next slide"
-              className="p-2 rounded-full border border-border hover:bg-secondary/60 text-muted-foreground hover:text-foreground transition-colors"
+              className="p-2 rounded-full border border-[#dadce0] dark:border-[#5f6368] hover:bg-[#f8f9fa] dark:hover:bg-[#3c4043] text-[#5f6368] dark:text-[#9aa0a6] hover:text-[#202124] dark:hover:text-white transition-colors"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
@@ -397,14 +397,14 @@ const Hero: React.FC = () => {
         </div>
 
         {/* Trust indicators */}
-        <div className="mt-12 pt-8 border-t border-border/50">
-          <p className="text-sm text-muted-foreground mb-6">Trusted by leading enterprises across industries</p>
-          <div className="flex items-center gap-8 md:gap-12 flex-wrap opacity-60">
-            <span className="text-lg font-semibold text-muted-foreground">Banking</span>
-            <span className="text-lg font-semibold text-muted-foreground">Telecom</span>
-            <span className="text-lg font-semibold text-muted-foreground">Healthcare</span>
-            <span className="text-lg font-semibold text-muted-foreground">Retail</span>
-            <span className="text-lg font-semibold text-muted-foreground">Fintech</span>
+        <div className="mt-12 pt-8 border-t border-[#dadce0] dark:border-[#3c4043]">
+          <p className="text-sm text-[#5f6368] dark:text-[#9aa0a6] mb-6">Trusted by leading enterprises across industries</p>
+          <div className="flex items-center gap-8 md:gap-12 flex-wrap opacity-50">
+            <span className="text-lg font-bold text-[#5f6368] dark:text-[#9aa0a6]" style={{ fontFamily: "'Google Sans', Arial, sans-serif" }}>Banking</span>
+            <span className="text-lg font-bold text-[#5f6368] dark:text-[#9aa0a6]" style={{ fontFamily: "'Google Sans', Arial, sans-serif" }}>Telecom</span>
+            <span className="text-lg font-bold text-[#5f6368] dark:text-[#9aa0a6]" style={{ fontFamily: "'Google Sans', Arial, sans-serif" }}>Healthcare</span>
+            <span className="text-lg font-bold text-[#5f6368] dark:text-[#9aa0a6]" style={{ fontFamily: "'Google Sans', Arial, sans-serif" }}>Retail</span>
+            <span className="text-lg font-bold text-[#5f6368] dark:text-[#9aa0a6]" style={{ fontFamily: "'Google Sans', Arial, sans-serif" }}>Fintech</span>
           </div>
         </div>
       </div>

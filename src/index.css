@@ -2,105 +2,100 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-
 @layer base {
   :root {
-    /* Claude-inspired Pampas/cream backgrounds */
-    --background: 45 25% 96%;
-    --foreground: 40 5% 8%;
+    /* Google Chrome website palette — Light */
+    --background: 0 0% 100%;
+    --foreground: 213 5% 13%;
 
-    /* Cards with warm paper-like feel */
-    --card: 45 20% 98%;
-    --card-foreground: 40 5% 8%;
+    --card: 0 0% 100%;
+    --card-foreground: 213 5% 13%;
 
-    --popover: 45 20% 98%;
-    --popover-foreground: 40 5% 8%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 213 5% 13%;
 
-    /* Near-black primary for text/buttons */
-    --primary: 40 5% 8%;
-    --primary-foreground: 45 25% 96%;
+    --primary: 217 89% 51%;
+    --primary-foreground: 0 0% 100%;
 
-    /* Soft warm gray secondary */
-    --secondary: 40 10% 91%;
-    --secondary-foreground: 40 5% 15%;
+    --secondary: 214 75% 94%;
+    --secondary-foreground: 217 68% 41%;
 
-    /* Muted tones - cloudy gray-gold */
-    --muted: 40 8% 88%;
-    --muted-foreground: 40 5% 45%;
+    --muted: 210 17% 98%;
+    --muted-foreground: 213 4% 46%;
 
-    /* Warm coral/terracotta accent - Claude orange */
-    --accent: 16 65% 55%;
-    --accent-foreground: 45 25% 98%;
+    --accent: 217 89% 51%;
+    --accent-foreground: 0 0% 100%;
 
-    /* Coral for highlights */
-    --highlight: 16 65% 55%;
-    --highlight-foreground: 45 25% 98%;
+    --highlight: 217 89% 51%;
+    --highlight-foreground: 0 0% 100%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 45 25% 98%;
+    --destructive: 5 79% 52%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 40 10% 88%;
-    --input: 40 10% 88%;
-    --ring: 16 65% 55%;
+    --border: 218 11% 85%;
+    --input: 218 11% 85%;
+    --ring: 217 89% 51%;
 
     --radius: 0.75rem;
 
-    /* Custom gradients - Claude inspired */
-    --gradient-hero: linear-gradient(135deg, hsl(45 25% 96%) 0%, hsl(40 15% 93%) 100%);
-    --gradient-card: linear-gradient(180deg, hsl(45 20% 99%) 0%, hsl(45 20% 97%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(16 65% 55%) 0%, hsl(20 70% 50%) 100%);
+    --surface-container: 210 17% 97%;
 
-    --sidebar-background: 45 20% 97%;
-    --sidebar-foreground: 40 5% 8%;
-    --sidebar-primary: 16 65% 55%;
-    --sidebar-primary-foreground: 45 25% 98%;
-    --sidebar-accent: 40 10% 91%;
-    --sidebar-accent-foreground: 40 5% 15%;
-    --sidebar-border: 40 10% 88%;
-    --sidebar-ring: 16 65% 55%;
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(210 17% 97%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(210 17% 98%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(217 89% 51%) 0%, hsl(217 89% 45%) 100%);
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 213 5% 13%;
+    --sidebar-primary: 217 89% 51%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 214 75% 94%;
+    --sidebar-accent-foreground: 217 68% 41%;
+    --sidebar-border: 218 11% 85%;
+    --sidebar-ring: 217 89% 51%;
   }
 
   .dark {
-    --background: 30 5% 10%;
-    --foreground: 40 15% 92%;
+    --background: 210 3% 16%;
+    --foreground: 0 0% 89%;
 
-    --card: 30 5% 12%;
-    --card-foreground: 40 15% 92%;
+    --card: 210 3% 18%;
+    --card-foreground: 0 0% 89%;
 
-    --popover: 30 5% 12%;
-    --popover-foreground: 40 15% 92%;
+    --popover: 210 3% 18%;
+    --popover-foreground: 0 0% 89%;
 
-    --primary: 40 15% 92%;
-    --primary-foreground: 30 5% 10%;
+    --primary: 217 89% 61%;
+    --primary-foreground: 210 3% 10%;
 
-    --secondary: 30 5% 18%;
-    --secondary-foreground: 40 15% 92%;
+    --secondary: 210 3% 24%;
+    --secondary-foreground: 0 0% 89%;
 
-    --muted: 30 5% 20%;
-    --muted-foreground: 40 10% 55%;
+    --muted: 210 3% 22%;
+    --muted-foreground: 210 3% 60%;
 
-    --accent: 16 60% 50%;
-    --accent-foreground: 45 25% 98%;
+    --accent: 217 89% 61%;
+    --accent-foreground: 210 3% 10%;
 
-    --highlight: 16 60% 50%;
-    --highlight-foreground: 45 25% 98%;
+    --highlight: 217 89% 61%;
+    --highlight-foreground: 210 3% 10%;
 
-    --destructive: 0 62% 45%;
-    --destructive-foreground: 40 15% 92%;
+    --destructive: 5 70% 55%;
+    --destructive-foreground: 0 0% 89%;
 
-    --border: 30 5% 20%;
-    --input: 30 5% 20%;
-    --ring: 16 60% 50%;
+    --border: 210 3% 28%;
+    --input: 210 3% 28%;
+    --ring: 217 89% 61%;
 
-    --sidebar-background: 30 5% 11%;
-    --sidebar-foreground: 40 15% 92%;
-    --sidebar-primary: 16 60% 50%;
-    --sidebar-primary-foreground: 45 25% 98%;
-    --sidebar-accent: 30 5% 18%;
-    --sidebar-accent-foreground: 40 15% 92%;
-    --sidebar-border: 30 5% 20%;
-    --sidebar-ring: 16 60% 50%;
+    --surface-container: 210 3% 20%;
+
+    --sidebar-background: 210 3% 16%;
+    --sidebar-foreground: 0 0% 89%;
+    --sidebar-primary: 217 89% 61%;
+    --sidebar-primary-foreground: 210 3% 10%;
+    --sidebar-accent: 210 3% 24%;
+    --sidebar-accent-foreground: 0 0% 89%;
+    --sidebar-border: 210 3% 28%;
+    --sidebar-ring: 217 89% 61%;
   }
 }
 
@@ -115,13 +110,34 @@
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-family: 'Google Sans', 'Roboto', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    zoom: 0.95;
+  }
+
+  /* Responsive scaling based on viewport */
+  @media (max-width: 640px) {
+    html {
+      font-size: 14px;
+    }
+  }
+
+  @media (min-width: 641px) and (max-width: 1024px) {
+    html {
+      font-size: 15px;
+    }
+  }
+
+  @media (min-width: 1025px) {
+    html {
+      font-size: 16px;
+    }
   }
 }
 
 @layer components {
   .nav-link {
-    @apply text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-medium;
+    @apply text-[#5f6368] dark:text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-medium;
   }
 
   .nav-link-active {
@@ -129,27 +145,28 @@
   }
 
   .section-title {
-    @apply text-3xl md:text-4xl font-semibold tracking-tight text-foreground;
+    @apply text-3xl md:text-[2.25rem] lg:text-[3rem] font-bold tracking-tight text-foreground leading-tight;
+    font-family: 'Google Sans', Arial, sans-serif;
   }
 
   .section-subtitle {
-    @apply text-lg text-muted-foreground max-w-2xl;
+    @apply text-base md:text-lg text-muted-foreground max-w-2xl leading-relaxed;
   }
 
   .service-card {
-    @apply bg-card rounded-2xl p-6 md:p-8 border border-border/50 hover:border-accent/30 transition-all duration-300 hover:shadow-lg hover:shadow-accent/5;
+    @apply bg-card rounded-2xl p-6 md:p-8 border border-[#dadce0] dark:border-border hover:bg-[#f8f9fa] dark:hover:bg-muted transition-all duration-200;
   }
 
   .product-card {
-    @apply bg-card rounded-2xl p-6 border border-border/50 hover:border-primary/20 transition-all duration-300 hover:shadow-xl hover:shadow-primary/5;
+    @apply bg-card rounded-2xl p-6 border border-[#dadce0] dark:border-border hover:bg-[#f8f9fa] dark:hover:bg-muted transition-all duration-200;
   }
 
   .icon-container {
-    @apply w-12 h-12 rounded-xl bg-secondary flex items-center justify-center text-primary group-hover:bg-accent group-hover:text-accent-foreground transition-all duration-300;
+    @apply w-12 h-12 rounded-2xl bg-[#e8f0fe] dark:bg-primary/12 flex items-center justify-center text-[#1a73e8] dark:text-primary transition-all duration-200;
   }
 
   .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-accent via-accent to-highlight;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#1a73e8] to-[#174ea6];
   }
 
   .hero-gradient {
@@ -157,7 +174,7 @@
   }
 
   .dark .hero-gradient {
-    background: linear-gradient(135deg, hsl(30 5% 10%) 0%, hsl(30 5% 13%) 100%);
+    background: linear-gradient(135deg, hsl(210 3% 16%) 0%, hsl(210 3% 18%) 100%);
   }
 }
 
@@ -168,6 +185,29 @@
 
   .animate-fade-in {
     animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  /* Ripple utility */
+  .ripple {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ripple::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: currentColor;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .ripple:hover::after {
+    opacity: 0.08;
+  }
+
+  .ripple:active::after {
+    opacity: 0.12;
   }
 
   @keyframes fadeUp {

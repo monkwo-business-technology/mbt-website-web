@@ -14,9 +14,15 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        sans: ['Roboto', 'system-ui', '-apple-system', 'sans-serif'],
+        display: ['"Google Sans"', 'Roboto', 'sans-serif'],
+      },
+      transitionTimingFunction: {
+        'md3-standard': 'cubic-bezier(0.2, 0, 0, 1)',
+        'md3-emphasized': 'cubic-bezier(0.2, 0, 0, 1)',
       },
       colors: {
+        'surface-container': 'hsl(var(--surface-container))',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

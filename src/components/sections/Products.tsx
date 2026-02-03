@@ -56,11 +56,11 @@ const additionalProducts = [
 
 const Products: React.FC = () => {
   return (
-    <section id="products" className="py-24 md:py-32 bg-background">
+    <section id="products" className="py-24 md:py-32 bg-white dark:bg-[#202124]">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-2xl mb-16">
-          <span className="text-sm font-medium text-accent mb-4 block">Proprietary Products</span>
+          <span className="text-sm font-medium text-[#1a73e8] dark:text-primary mb-4 block">Proprietary Products</span>
           <h2 className="section-title mb-4">
             Enterprise-ready solutions
           </h2>
@@ -86,7 +86,7 @@ const Products: React.FC = () => {
                 <h3 className="text-lg font-semibold text-foreground">
                   {product.name}
                 </h3>
-                <span className="text-xs font-medium text-accent">
+                <span className="text-xs font-medium text-[#1a73e8] dark:text-primary">
                   {product.tagline}
                 </span>
               </div>
@@ -95,10 +95,10 @@ const Products: React.FC = () => {
                 {product.description}
               </p>
 
-              <div className="mt-5 pt-4 border-t border-border/50">
+              <div className="mt-5 pt-4 border-t border-[#dadce0] dark:border-[#3c4043]">
                 <Link
                   to={`/products/${product.slug}`}
-                  className="group inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-accent transition-colors duration-200"
+                  className="group inline-flex items-center gap-2 text-sm font-medium text-[#1a73e8] dark:text-primary hover:text-[#174ea6] transition-colors duration-200"
                 >
                   Learn more
                   <ArrowRightIcon className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
@@ -109,14 +109,14 @@ const Products: React.FC = () => {
         </div>
 
         {/* Additional Products */}
-        <div className="bg-secondary/50 rounded-2xl p-8">
+        <div className="bg-[#f8f9fa] dark:bg-[#28292a] rounded-2xl p-8 border border-[#dadce0] dark:border-[#3c4043]">
           <h3 className="text-lg font-semibold text-foreground mb-6">
             Additional Solutions
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {additionalProducts.map((product) => (
               <Link key={product.name} to={`/products/${product.slug}`} className="group">
-                <h4 className="font-medium text-foreground mb-1 group-hover:text-accent transition-colors duration-200">
+                <h4 className="font-medium text-[#202124] dark:text-white mb-1 group-hover:text-[#1a73e8] dark:group-hover:text-primary transition-colors duration-200">
                   {product.name}
                 </h4>
                 <p className="text-sm text-muted-foreground">

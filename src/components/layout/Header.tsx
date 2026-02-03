@@ -102,26 +102,26 @@ const Header: React.FC = () => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border/40">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-[#202124] border-b border-[#dadce0] dark:border-[#3c4043] shadow-md">
       <div className="max-w-[1600px] mx-auto px-4 lg:px-6">
         <nav className="flex items-center justify-between h-16">
           {/* Logo */}
           <a href="#" className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-accent flex items-center justify-center">
-              <span className="text-accent-foreground font-bold text-sm">M</span>
+            <div className="w-8 h-8 rounded-lg bg-[#1a73e8] flex items-center justify-center">
+              <span className="text-white font-bold text-sm">M</span>
             </div>
-            <span className="text-xl font-semibold text-foreground tracking-tight">Monkwo</span>
+            <span className="text-xl font-bold text-[#202124] dark:text-white tracking-tight" style={{ fontFamily: "'Google Sans', Arial, sans-serif" }}>Monkwo</span>
           </a>
 
           {/* Desktop Navigation with Mega Menus */}
           <div className="hidden lg:flex items-center">
             <NavigationMenu>
-              <NavigationMenuList className="gap-1">
+              <NavigationMenuList className="gap-0">
                 {/* Home */}
                 <NavigationMenuItem>
                   <NavigationMenuLink
                     href="#"
-                    className="group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary/50 transition-colors"
+                    className="group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium text-[#5f6368] dark:text-[#e3e3e3] hover:text-[#202124] dark:hover:text-white hover:bg-[#f8f9fa] dark:hover:bg-[#3c4043] transition-colors"
                   >
                     Home
                   </NavigationMenuLink>
@@ -129,30 +129,30 @@ const Header: React.FC = () => {
 
                 {/* Solutions Mega Menu */}
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="text-muted-foreground hover:text-foreground bg-transparent hover:bg-secondary/50 data-[state=open]:bg-secondary/50">
+                  <NavigationMenuTrigger className="text-[#5f6368] dark:text-[#e3e3e3] hover:text-[#202124] dark:hover:text-white bg-transparent hover:bg-[#f8f9fa] dark:hover:bg-[#3c4043] data-[state=open]:bg-[#f8f9fa] dark:data-[state=open]:bg-[#3c4043]">
                     Solutions
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <div className="w-[600px] p-6 bg-card border border-border rounded-xl shadow-xl">
+                    <div className="w-[600px] p-6 bg-white dark:bg-[#292a2d] border border-[#dadce0] dark:border-[#3c4043] rounded-2xl shadow-lg">
                       <div className="grid grid-cols-2 gap-4">
                         {solutions.map((item) => (
                           <Link
                             key={item.title}
                             to={item.href}
-                            className="group flex items-start gap-4 p-3 rounded-lg hover:bg-secondary/50 transition-colors"
+                            className="group flex items-start gap-4 p-3 rounded-xl hover:bg-[#f8f9fa] dark:hover:bg-[#3c4043] transition-colors"
                           >
-                            <div className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
+                            <div className="w-10 h-10 rounded-xl bg-[#e8f0fe] dark:bg-primary/12 flex items-center justify-center text-[#1a73e8] dark:text-primary transition-colors">
                               <item.icon className="w-5 h-5" />
                             </div>
                             <div>
-                              <div className="font-medium text-foreground text-sm">{item.title}</div>
-                              <div className="text-xs text-muted-foreground mt-0.5">{item.description}</div>
+                              <div className="font-medium text-[#202124] dark:text-white text-sm">{item.title}</div>
+                              <div className="text-xs text-[#5f6368] dark:text-[#9aa0a6] mt-0.5">{item.description}</div>
                             </div>
                           </Link>
                         ))}
                       </div>
-                      <div className="mt-4 pt-4 border-t border-border">
-                        <Link to="/solutions" className="text-sm font-medium text-accent hover:text-accent/80 transition-colors">
+                      <div className="mt-4 pt-4 border-t border-[#dadce0] dark:border-[#3c4043]">
+                        <Link to="/solutions" className="text-sm font-medium text-[#1a73e8] dark:text-primary hover:text-[#174ea6] transition-colors">
                           View all solutions →
                         </Link>
                       </div>
@@ -162,44 +162,44 @@ const Header: React.FC = () => {
 
                 {/* Services Mega Menu */}
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="text-muted-foreground hover:text-foreground bg-transparent hover:bg-secondary/50 data-[state=open]:bg-secondary/50">
+                  <NavigationMenuTrigger className="text-[#5f6368] dark:text-[#e3e3e3] hover:text-[#202124] dark:hover:text-white bg-transparent hover:bg-[#f8f9fa] dark:hover:bg-[#3c4043] data-[state=open]:bg-[#f8f9fa] dark:data-[state=open]:bg-[#3c4043]">
                     Services
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <div className="w-[820px] p-6 bg-card border border-border rounded-xl shadow-xl">
+                    <div className="w-[820px] p-6 bg-white dark:bg-[#292a2d] border border-[#dadce0] dark:border-[#3c4043] rounded-2xl shadow-lg">
                       <div className="grid grid-cols-3 gap-6">
                         {serviceCategories.map((category) => (
                           <div key={category.title}>
                             <div className="flex items-center gap-2 mb-3">
-                              <div className="w-7 h-7 rounded-md bg-secondary flex items-center justify-center text-muted-foreground">
+                              <div className="w-7 h-7 rounded-lg bg-[#e8f0fe] dark:bg-primary/12 flex items-center justify-center text-[#1a73e8] dark:text-primary">
                                 <category.icon className="w-3.5 h-3.5" />
                               </div>
-                              <span className="text-xs font-semibold text-foreground uppercase tracking-wider">{category.title}</span>
+                              <span className="text-xs font-semibold text-[#202124] dark:text-white uppercase tracking-wider">{category.title}</span>
                             </div>
                             <div className="space-y-1">
                               {category.items.map((item) => (
                                 <Link
                                   key={item.title}
                                   to={item.href}
-                                  className="block p-2 rounded-md hover:bg-secondary/50 transition-colors"
+                                  className="block p-2 rounded-lg hover:bg-[#f8f9fa] dark:hover:bg-[#3c4043] transition-colors"
                                 >
-                                  <div className="text-sm text-foreground font-medium">{item.title}</div>
-                                  <div className="text-xs text-muted-foreground">{item.description}</div>
+                                  <div className="text-sm text-[#202124] dark:text-[#e3e3e3] font-medium">{item.title}</div>
+                                  <div className="text-xs text-[#5f6368] dark:text-[#9aa0a6]">{item.description}</div>
                                 </Link>
                               ))}
                             </div>
                             <Link
                               to={category.href}
-                              className="inline-block mt-2 text-xs font-medium text-accent hover:text-accent/80 transition-colors"
+                              className="inline-block mt-2 text-xs font-medium text-[#1a73e8] dark:text-primary hover:text-[#174ea6] transition-colors"
                             >
                               ..view more
                             </Link>
                           </div>
                         ))}
                       </div>
-                      <div className="mt-5 pt-4 border-t border-border flex items-center justify-between">
-                        <span className="text-xs text-muted-foreground">Need custom solutions?</span>
-                        <a href="#contact" className="text-sm font-medium text-accent hover:text-accent/80 transition-colors">
+                      <div className="mt-5 pt-4 border-t border-[#dadce0] dark:border-[#3c4043] flex items-center justify-between">
+                        <span className="text-xs text-[#5f6368] dark:text-[#9aa0a6]">Need custom solutions?</span>
+                        <a href="#contact" className="text-sm font-medium text-[#1a73e8] dark:text-primary hover:text-[#174ea6] transition-colors">
                           Contact Sales →
                         </a>
                       </div>
@@ -209,26 +209,26 @@ const Header: React.FC = () => {
 
                 {/* Products Link */}
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="text-muted-foreground hover:text-foreground bg-transparent hover:bg-secondary/50 data-[state=open]:bg-secondary/50">
+                  <NavigationMenuTrigger className="text-[#5f6368] dark:text-[#e3e3e3] hover:text-[#202124] dark:hover:text-white bg-transparent hover:bg-[#f8f9fa] dark:hover:bg-[#3c4043] data-[state=open]:bg-[#f8f9fa] dark:data-[state=open]:bg-[#3c4043]">
                     Products
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <div className="w-[400px] p-6 bg-card border border-border rounded-xl shadow-xl">
-                      <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-4">Proprietary Solutions</p>
+                    <div className="w-[400px] p-6 bg-white dark:bg-[#292a2d] border border-[#dadce0] dark:border-[#3c4043] rounded-2xl shadow-lg">
+                      <p className="text-xs font-medium text-[#5f6368] dark:text-[#9aa0a6] uppercase tracking-wider mb-4">Proprietary Solutions</p>
                       <div className="space-y-2">
                         {products.map((product) => (
                           <Link
                             key={product.title}
                             to={`/products/${product.slug}`}
-                            className="block p-3 rounded-lg hover:bg-secondary/50 transition-colors"
+                            className="block p-3 rounded-xl hover:bg-[#f8f9fa] dark:hover:bg-[#3c4043] transition-colors"
                           >
-                            <div className="font-medium text-foreground text-sm">{product.title}</div>
-                            <div className="text-xs text-muted-foreground mt-0.5">{product.description}</div>
+                            <div className="font-medium text-[#202124] dark:text-white text-sm">{product.title}</div>
+                            <div className="text-xs text-[#5f6368] dark:text-[#9aa0a6] mt-0.5">{product.description}</div>
                           </Link>
                         ))}
                       </div>
-                      <div className="mt-4 pt-4 border-t border-border">
-                        <Link to="/products" className="text-sm font-medium text-accent hover:text-accent/80 transition-colors">
+                      <div className="mt-4 pt-4 border-t border-[#dadce0] dark:border-[#3c4043]">
+                        <Link to="/products" className="text-sm font-medium text-[#1a73e8] dark:text-primary hover:text-[#174ea6] transition-colors">
                           See all 10 products →
                         </Link>
                       </div>
@@ -238,24 +238,24 @@ const Header: React.FC = () => {
 
                 {/* Learn Mega Menu */}
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger className="text-muted-foreground hover:text-foreground bg-transparent hover:bg-secondary/50 data-[state=open]:bg-secondary/50">
+                  <NavigationMenuTrigger className="text-[#5f6368] dark:text-[#e3e3e3] hover:text-[#202124] dark:hover:text-white bg-transparent hover:bg-[#f8f9fa] dark:hover:bg-[#3c4043] data-[state=open]:bg-[#f8f9fa] dark:data-[state=open]:bg-[#3c4043]">
                     Learn
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <div className="w-[450px] p-6 bg-card border border-border rounded-xl shadow-xl">
+                    <div className="w-[450px] p-6 bg-white dark:bg-[#292a2d] border border-[#dadce0] dark:border-[#3c4043] rounded-2xl shadow-lg">
                       <div className="space-y-1">
                         {learn.map((item) => (
                           <Link
                             key={item.title}
                             to={item.href}
-                            className="group flex items-center gap-3 p-3 rounded-lg hover:bg-secondary/50 transition-colors"
+                            className="group flex items-center gap-3 p-3 rounded-xl hover:bg-[#f8f9fa] dark:hover:bg-[#3c4043] transition-colors"
                           >
-                            <div className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center text-muted-foreground group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
+                            <div className="w-9 h-9 rounded-xl bg-[#e8f0fe] dark:bg-primary/12 flex items-center justify-center text-[#1a73e8] dark:text-primary transition-colors">
                               <item.icon className="w-4 h-4" />
                             </div>
                             <div>
-                              <div className="font-medium text-foreground text-sm">{item.title}</div>
-                              <div className="text-xs text-muted-foreground">{item.description}</div>
+                              <div className="font-medium text-[#202124] dark:text-white text-sm">{item.title}</div>
+                              <div className="text-xs text-[#5f6368] dark:text-[#9aa0a6]">{item.description}</div>
                             </div>
                           </Link>
                         ))}
@@ -267,26 +267,38 @@ const Header: React.FC = () => {
             </NavigationMenu>
           </div>
 
-          {/* Right Side CTAs */}
-          <div className="hidden lg:flex items-center gap-3">
+          {/* Right Side — Search bar, Waffle, Avatar */}
+          <div className="hidden lg:flex items-center gap-2">
+            {/* Pill search bar */}
+            <div className="flex items-center bg-[#f1f3f4] dark:bg-[#3c4043] rounded-3xl px-4 py-2 gap-2 w-56">
+              <span className="material-symbols-outlined text-[#5f6368] dark:text-[#9aa0a6] text-[20px]">search</span>
+              <input
+                type="text"
+                placeholder="Search…"
+                className="bg-transparent text-sm outline-none w-full placeholder:text-[#5f6368] dark:placeholder:text-[#9aa0a6] text-[#202124] dark:text-[#e3e3e3]"
+              />
+            </div>
+
             <ThemeToggle />
+
+            {/* Waffle / App launcher icon */}
+            <button className="p-2 rounded-full hover:bg-[#f1f3f4] dark:hover:bg-[#3c4043] transition-colors" aria-label="Apps">
+              <span className="material-symbols-outlined text-[#5f6368] dark:text-[#9aa0a6] text-[22px]">apps</span>
+            </button>
+
+            {/* Profile avatar */}
             <Link
               to="/login"
-              className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              className="flex items-center justify-center w-9 h-9 rounded-full bg-[#1a73e8] text-white text-sm font-medium"
+              style={{ fontFamily: "'Google Sans', Arial, sans-serif" }}
             >
-              Login
+              M
             </Link>
-            <a
-              href="#contact"
-              className="px-5 py-2.5 rounded-full bg-accent text-accent-foreground text-sm font-medium hover:bg-accent/90 transition-colors"
-            >
-              Contact Sales
-            </a>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 text-foreground"
+            className="lg:hidden p-2 text-[#5f6368] dark:text-[#e3e3e3]"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <CloseIcon /> : <MenuIcon />}
@@ -295,20 +307,20 @@ const Header: React.FC = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden py-6 border-t border-border/50 animate-fade-in">
+          <div className="lg:hidden py-6 border-t border-[#dadce0] dark:border-[#3c4043] animate-fade-in">
             <div className="flex flex-col gap-1">
-              <a href="#" className="py-3 px-2 text-foreground font-medium rounded-lg hover:bg-secondary/50" onClick={() => setIsMenuOpen(false)}>
+              <a href="#" className="py-3 px-2 text-[#202124] dark:text-white font-medium rounded-lg hover:bg-[#f8f9fa] dark:hover:bg-[#3c4043]" onClick={() => setIsMenuOpen(false)}>
                 Home
               </a>
-              
+
               <details className="group">
-                <summary className="py-3 px-2 text-muted-foreground font-medium rounded-lg hover:bg-secondary/50 cursor-pointer list-none flex items-center justify-between">
+                <summary className="py-3 px-2 text-[#5f6368] dark:text-[#e3e3e3] font-medium rounded-lg hover:bg-[#f8f9fa] dark:hover:bg-[#3c4043] cursor-pointer list-none flex items-center justify-between">
                   Solutions
                   <ChevronDown className="w-4 h-4 group-open:rotate-180 transition-transform" />
                 </summary>
                 <div className="pl-4 py-2 space-y-1">
                   {solutions.map((item) => (
-                    <Link key={item.title} to={item.href} className="block py-2 px-2 text-sm text-muted-foreground hover:text-foreground" onClick={() => setIsMenuOpen(false)}>
+                    <Link key={item.title} to={item.href} className="block py-2 px-2 text-sm text-[#5f6368] dark:text-[#9aa0a6] hover:text-[#202124] dark:hover:text-white" onClick={() => setIsMenuOpen(false)}>
                       {item.title}
                     </Link>
                   ))}
@@ -316,20 +328,20 @@ const Header: React.FC = () => {
               </details>
 
               <details className="group">
-                <summary className="py-3 px-2 text-muted-foreground font-medium rounded-lg hover:bg-secondary/50 cursor-pointer list-none flex items-center justify-between">
+                <summary className="py-3 px-2 text-[#5f6368] dark:text-[#e3e3e3] font-medium rounded-lg hover:bg-[#f8f9fa] dark:hover:bg-[#3c4043] cursor-pointer list-none flex items-center justify-between">
                   Services
                   <ChevronDown className="w-4 h-4 group-open:rotate-180 transition-transform" />
                 </summary>
                 <div className="pl-4 py-2 space-y-3">
                   {serviceCategories.map((category) => (
                     <div key={category.title}>
-                      <div className="text-xs font-semibold text-foreground uppercase tracking-wider px-2 mb-1">{category.title}</div>
+                      <div className="text-xs font-semibold text-[#202124] dark:text-white uppercase tracking-wider px-2 mb-1">{category.title}</div>
                       {category.items.map((item) => (
-                        <Link key={item.title} to={item.href} className="block py-1.5 px-2 text-sm text-muted-foreground hover:text-foreground" onClick={() => setIsMenuOpen(false)}>
+                        <Link key={item.title} to={item.href} className="block py-1.5 px-2 text-sm text-[#5f6368] dark:text-[#9aa0a6] hover:text-[#202124] dark:hover:text-white" onClick={() => setIsMenuOpen(false)}>
                           {item.title}
                         </Link>
                       ))}
-                      <Link to={category.href} className="block py-1 px-2 text-xs font-medium text-accent" onClick={() => setIsMenuOpen(false)}>
+                      <Link to={category.href} className="block py-1 px-2 text-xs font-medium text-[#1a73e8] dark:text-primary" onClick={() => setIsMenuOpen(false)}>
                         ..view more
                       </Link>
                     </div>
@@ -337,33 +349,33 @@ const Header: React.FC = () => {
                 </div>
               </details>
 
-              <Link to="/products" className="py-3 px-2 text-muted-foreground font-medium rounded-lg hover:bg-secondary/50" onClick={() => setIsMenuOpen(false)}>
+              <Link to="/products" className="py-3 px-2 text-[#5f6368] dark:text-[#e3e3e3] font-medium rounded-lg hover:bg-[#f8f9fa] dark:hover:bg-[#3c4043]" onClick={() => setIsMenuOpen(false)}>
                 Products
               </Link>
 
               <details className="group">
-                <summary className="py-3 px-2 text-muted-foreground font-medium rounded-lg hover:bg-secondary/50 cursor-pointer list-none flex items-center justify-between">
+                <summary className="py-3 px-2 text-[#5f6368] dark:text-[#e3e3e3] font-medium rounded-lg hover:bg-[#f8f9fa] dark:hover:bg-[#3c4043] cursor-pointer list-none flex items-center justify-between">
                   Learn
                   <ChevronDown className="w-4 h-4 group-open:rotate-180 transition-transform" />
                 </summary>
                 <div className="pl-4 py-2 space-y-1">
                   {learn.map((item) => (
-                    <Link key={item.title} to={item.href} className="block py-2 px-2 text-sm text-muted-foreground hover:text-foreground" onClick={() => setIsMenuOpen(false)}>
+                    <Link key={item.title} to={item.href} className="block py-2 px-2 text-sm text-[#5f6368] dark:text-[#9aa0a6] hover:text-[#202124] dark:hover:text-white" onClick={() => setIsMenuOpen(false)}>
                       {item.title}
                     </Link>
                   ))}
                 </div>
               </details>
 
-              <div className="mt-4 pt-4 border-t border-border/50 flex flex-col gap-3">
+              <div className="mt-4 pt-4 border-t border-[#dadce0] dark:border-[#3c4043] flex flex-col gap-3">
                 <div className="flex items-center justify-between px-2">
-                  <span className="text-sm text-muted-foreground">Theme</span>
+                  <span className="text-sm text-[#5f6368] dark:text-[#9aa0a6]">Theme</span>
                   <ThemeToggle />
                 </div>
-                <Link to="/login" className="py-2.5 px-4 text-center text-sm font-medium text-muted-foreground hover:text-foreground rounded-lg border border-border" onClick={() => setIsMenuOpen(false)}>
+                <Link to="/login" className="py-2.5 px-4 text-center text-sm font-medium text-[#1a73e8] dark:text-primary hover:bg-[#f8f9fa] dark:hover:bg-[#3c4043] rounded-full border border-[#dadce0] dark:border-[#3c4043]" onClick={() => setIsMenuOpen(false)}>
                   Login
                 </Link>
-                <a href="#contact" className="py-2.5 px-4 text-center text-sm font-medium bg-accent text-accent-foreground rounded-full hover:bg-accent/90" onClick={() => setIsMenuOpen(false)}>
+                <a href="#contact" className="py-2.5 px-4 text-center text-sm font-medium bg-[#1a73e8] text-white rounded-full hover:bg-[#185abc]" onClick={() => setIsMenuOpen(false)}>
                   Contact Sales
                 </a>
               </div>
