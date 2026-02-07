@@ -61,18 +61,18 @@ const SolutionsIndex: React.FC = () => {
         </section>
 
         {/* CTA */}
-        <section className="py-20 md:py-24 bg-foreground text-background">
+        <section className="py-20 md:py-24 bg-[#1a73e8] text-white">
           <div className="max-w-4xl mx-auto px-4 lg:px-6 text-center">
             <h2 className="text-3xl md:text-4xl font-semibold mb-4">
               Not sure where to start?
             </h2>
-            <p className="text-background/70 mb-8 max-w-2xl mx-auto">
+            <p className="text-white/80 mb-8 max-w-2xl mx-auto">
               Our experts can help you identify the right solutions for your business challenges.
               Schedule a free consultation today.
             </p>
             <Link
               to="/#contact"
-              className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-accent text-accent-foreground font-medium hover:bg-accent/90 transition-colors"
+              className="inline-flex items-center gap-2 px-8 py-3 rounded-lg bg-white text-[#1a73e8] font-medium hover:bg-white/90 transition-colors"
             >
               Schedule a Consultation
               <ArrowRight className="w-4 h-4" />

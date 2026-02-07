@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { MenuIcon, CloseIcon, CodeIcon, AutomationIcon, ConsultingIcon, DesignIcon, TrainingIcon, IoTIcon, EcommerceIcon, LegacyIcon, DataIcon, AIIcon, InfrastructureIcon, TalentIcon } from '../icons/ServiceIcons';
-import { ChevronDown, BookOpen, GraduationCap, FileText, Video, Users } from 'lucide-react';
+import { ChevronDown, BookOpen, GraduationCap, FileText, Video, Users, Globe } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import ThemeToggle from '../ThemeToggle';
 import {
@@ -16,7 +16,32 @@ import { cn } from '@/lib/utils';
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isAppLauncherOpen, setIsAppLauncherOpen] = useState(false);
+  const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const appLauncherRef = useRef<HTMLDivElement>(null);
+  const lastScrollY = useRef(0);
+
+  // Hide header on scroll down, show on scroll up
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > lastScrollY.current && currentScrollY > 80) {
+        setIsHeaderVisible(false);
+      } else {
+        setIsHeaderVisible(true);
+      }
+      lastScrollY.current = currentScrollY;
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Sync CSS variable for child sticky elements
+  useEffect(() => {
+    document.documentElement.style.setProperty(
+      '--header-offset',
+      isHeaderVisible ? '64px' : '0px'
+    );
+  }, [isHeaderVisible]);
 
   // Close app launcher when clicking outside
   useEffect(() => {
@@ -123,13 +148,14 @@ const Header: React.FC = () => {
   const learn = [
     { icon: BookOpen, title: 'Documentation', description: 'Technical guides and API docs', href: '/learn/documentation' },
     { icon: GraduationCap, title: 'Tutorials', description: 'Step-by-step learning paths', href: '/learn/tutorials' },
+    { icon: Globe, title: 'MDN', description: 'Monqwo Development Network', href: '/learn/mdn' },
     { icon: FileText, title: 'Case Studies', description: 'Real-world success stories', href: '/learn/case-studies' },
     { icon: Video, title: 'Webinars', description: 'Live and recorded sessions', href: '/learn/webinars' },
     { icon: Users, title: 'Community', description: 'Connect with other users', href: '/learn/community' },
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-[#202124] border-b border-[#dadce0] dark:border-[#3c4043] shadow-md">
+    <header className={`fixed top-0 left-0 right-0 z-50 bg-white dark:bg-[#202124] border-b border-[#dadce0] dark:border-[#3c4043] shadow-md transition-transform duration-300 ${isHeaderVisible ? 'translate-y-0' : '-translate-y-full'}`}>
       <div className="max-w-[1600px] mx-auto px-4 lg:px-6">
         <nav className="flex items-center justify-between h-16">
           {/* Logo */}

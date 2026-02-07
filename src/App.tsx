@@ -39,6 +39,15 @@ import AdminLayout from "./pages/admin/AdminLayout";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import AdminTutorials from "./pages/admin/AdminTutorials";
 import AdminTutorialEditor from "./pages/admin/AdminTutorialEditor";
+import MDNHomePage from "./pages/learn/mdn/MDNHomePage";
+import MDNCoursesPage from "./pages/learn/mdn/MDNCoursesPage";
+import MDNCourseDetailPage from "./pages/learn/mdn/MDNCourseDetailPage";
+import MDNRoadmapsPage from "./pages/learn/mdn/MDNRoadmapsPage";
+import MDNRoadmapDetailPage from "./pages/learn/mdn/MDNRoadmapDetailPage";
+import MDNBusinessPage from "./pages/learn/mdn/MDNBusinessPage";
+import MDNTeachPage from "./pages/learn/mdn/MDNTeachPage";
+import MDNGovernmentPage from "./pages/learn/mdn/MDNGovernmentPage";
+import MDNPartnersPage from "./pages/learn/mdn/MDNPartnersPage";
 
 const queryClient = new QueryClient();
 
@@ -81,6 +90,16 @@ const App = () => (
             <Route path="/learn/case-studies/:slug" element={<CaseStudyDetailPage />} />
             <Route path="/learn/webinars" element={<WebinarsPage />} />
             <Route path="/learn/community" element={<CommunityPage />} />
+            {/* MDN Routes */}
+            <Route path="/learn/mdn" element={<MDNHomePage />} />
+            <Route path="/learn/mdn/courses" element={<MDNCoursesPage />} />
+            <Route path="/learn/mdn/courses/:slug" element={<MDNCourseDetailPage />} />
+            <Route path="/learn/mdn/roadmaps" element={<MDNRoadmapsPage />} />
+            <Route path="/learn/mdn/roadmaps/:slug" element={<MDNRoadmapDetailPage />} />
+            <Route path="/learn/mdn/business" element={<MDNBusinessPage />} />
+            <Route path="/learn/mdn/teach" element={<MDNTeachPage />} />
+            <Route path="/learn/mdn/government" element={<MDNGovernmentPage />} />
+            <Route path="/learn/mdn/partners" element={<MDNPartnersPage />} />
             {/* Admin Routes */}
             <Route path="/admin" element={<AdminLayout />}>
               <Route index element={<AdminDashboard />} />
